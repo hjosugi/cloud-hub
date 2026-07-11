@@ -5,6 +5,7 @@
 
 - Repository: https://github.com/hjosugi/cloud-cert-kit
 - Site: https://hjosugi.github.io/cloud-cert-kit/
+- Release: https://github.com/hjosugi/cloud-cert-kit/releases/tag/v1.0.0
 - Issues: CERT-011/012は不採用としてclose。CERT-013〜015で間違い復習、教材増補、Releaseを管理。
 
 ## 1. プロジェクト目的
@@ -25,6 +26,7 @@
 | .github/workflows/site.yml | 完成 | テスト、データ更新、Pages配信を自動化 |
 | study/aip-c01/ | 完成 | 5ドメインguide、50 cards、20 original drills |
 | wrong-answers/ | 完成 | AIP-C01/PDEの誤答だけを翌日・3日後・7日後に反復 |
+| v1.0.0 | 公開済み | source archive + 検証済みzip asset |
 | notes/pde-domain1-design-notes.md | 完成 | Udemy PDE模試 Domain1 (50問) |
 | notes/aip-c01-exam1-notes.md | 完成 | Kane/Maarek AIP-C01 模試#1 (75問) |
 | AIP-C01 模試#2 ノート | **ブロック中** | 添付アップロードが2回連続で空 (0バイト)。本文のチャット直貼りで解除 |

@@ -4,10 +4,10 @@ Labels: ops,P1
 ## タスク
 
 - [x] VERSIONとCHANGELOGを追加
-- [ ] mainへ学習コンテンツをmerge
-- [ ] GitHub Pagesの本番deploy成功を確認
-- [ ] GitHub Release v1.0.0を公開
-- [ ] source archiveとrelease assetを確認
+- [x] mainへ学習コンテンツをmerge
+- [x] GitHub Pagesの本番deploy成功を確認
+- [x] GitHub Release v1.0.0を公開
+- [x] source archiveとrelease assetを確認
 
 ## 完了条件
 
