@@ -9,6 +9,7 @@
 | — | cloud-hubサイト基盤構築 + 一次情報検証 | 完了 | 2026-07-11 |
 | HUB-001 | cloud-hubへrename・multi-cloud設計運用へ再定義 | 完了 | 2026-07-11 |
 | HUB-002 | cloud-hub v2.0.0 Release | 完了 | 2026-07-11 |
+| HUB-003 | 用途検索 + 同等構成の費用比較 | 完了 | 2026-07-11 |
 | CERT-010 | 静的フィード分析 + GitHub Pages自動運用 | 完了 | 2026-07-11 |
 | — | GitHub public repository作成、Issue #1〜#12登録 | 完了 | 2026-07-11 |
 | CERT-013 | 間違い問題だけの復習導線 | 完了 | 2026-07-11 |
@@ -65,3 +66,4 @@
 - 2024年改訂のPDE本番はDataform / BigLake / Icebergの比重増。Udemy模試では薄い
 - フィード分類は読む順序を決める補助機能。採用判断は公式情報、対象inventory、実環境の検証結果で行う
 - 対応表は機能の完全互換を意味しない。resource scope、failure behavior、IAM、SLAを必ず個別確認する
+- 費用baselineは請求予測でも性能比較でもない。公式calculatorとworkload benchmarkで最終検証する
