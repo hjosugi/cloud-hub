@@ -2,6 +2,9 @@
 
 AWS / Azure / Google Cloud / OCIの上位資格学習と実務リファレンスを、1つの静的サイトにまとめた低コスト運用キットです。公式リリースを並べるだけでなく、軽量MLで重要度と意味を分析します。
 
+- 公開サイト: https://hjosugi.github.io/cloud-cert-kit/
+- 進捗Issue: https://github.com/hjosugi/cloud-cert-kit/issues
+
 ## できること
 
 - 4クラウドの資格ロードマップ、サービス対応、ネットワーク、IAMの横断参照

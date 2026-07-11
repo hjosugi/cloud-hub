@@ -3,6 +3,10 @@
 次セッション (または別のAI/人間) がこの作業を継続するための引き継ぎ文書。
 最終更新: 2026-07-11
 
+- Repository: https://github.com/hjosugi/cloud-cert-kit
+- Site: https://hjosugi.github.io/cloud-cert-kit/
+- Issues: CERT-001〜012を登録済み。CERT-010は実装完了としてclose済み。
+
 ## 1. プロジェクト目的
 
 1. AWS / Azure / GCP / OCI の上位資格 (Professional / Expert / Specialty) を最小努力で取得する。
