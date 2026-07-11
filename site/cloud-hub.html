@@ -239,7 +239,7 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
 <tr><td class="cat">Failure behavior</td><td>control plane停止時のexisting data plane</td><td>SLAの数字だけで可用性を比較する</td></tr>
 <tr><td class="cat">Operator responsibility</td><td>patch、backup、scaling、failover</td><td>「managed」を同じ責任範囲だと考える</td></tr>
 </tbody></table></div>
-<p class="small"><a href="https://github.com/hjosugi/cloud-hub/blob/main/guide/cloud-philosophies.md">思想比較の詳細</a> / <a href="https://github.com/hjosugi/cloud-hub/blob/main/guide/multicloud-design.md">設計判断ガイド</a></p>
+<p class="small"><a href="https://github.com/hjosugi/cloud-hub/blob/main/docs/guides/cloud-philosophies.md">思想比較の詳細</a> / <a href="https://github.com/hjosugi/cloud-hub/blob/main/docs/guides/multicloud-design.md">設計判断ガイド</a></p>
 </section>
 <!-- ================= CERTIFICATIONS ================= -->
 <section id="cert" class="panel">
@@ -383,7 +383,7 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
   <div class="card"><h3>この概算に含めないもの</h3><ul id="cost-exclusions"></ul></div>
 </div>
 <div class="killer"><b>比較結果の読み方</b><p id="cost-formula"></p><p>容量一致は性能一致ではない。候補を絞った後は同じapplication、data、SLO、load patternでbenchmarkし、公式calculatorへdisk、LB、IP、request、backup、監視、通信、supportを追加する。</p></div>
-<p class="small"><a href="https://github.com/hjosugi/cloud-hub/blob/main/guide/service-and-cost-comparison.md">比較方法と算入範囲</a> / <a href="https://calculator.aws/">AWS Calculator</a> / <a href="https://azure.microsoft.com/pricing/calculator/">Azure Calculator</a> / <a href="https://cloud.google.com/products/calculator">Google Cloud Calculator</a> / <a href="https://www.oracle.com/cloud/costestimator.html">OCI Estimator</a></p>
+<p class="small"><a href="https://github.com/hjosugi/cloud-hub/blob/main/docs/guides/service-and-cost-comparison.md">比較方法と算入範囲</a> / <a href="https://calculator.aws/">AWS Calculator</a> / <a href="https://azure.microsoft.com/pricing/calculator/">Azure Calculator</a> / <a href="https://cloud.google.com/products/calculator">Google Cloud Calculator</a> / <a href="https://www.oracle.com/cloud/costestimator.html">OCI Estimator</a></p>
 </section>
 <!-- ================= NETWORK ================= -->
 <section id="net" class="panel">
@@ -487,7 +487,7 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
 <div class="killer"><b>症状をpage、原因をdiagnosticへ</b>
 <ul><li><b>Page:</b> user SLOを現在侵害し、operator actionが必要</li><li><b>Ticket:</b> capacity、certificate expiry、policy driftなど将来risk</li><li><b>Log only:</b> forensic evidence、成功event、変更履歴</li></ul>
 </div>
-<p class="small"><a href="https://github.com/hjosugi/cloud-hub/blob/main/guide/operations-comparison.md">運用比較の詳細</a> / <a href="https://github.com/hjosugi/cloud-hub/blob/main/guide/release-intelligence.md">リリースの読み方</a></p>
+<p class="small"><a href="https://github.com/hjosugi/cloud-hub/blob/main/docs/guides/operations-comparison.md">運用比較の詳細</a> / <a href="https://github.com/hjosugi/cloud-hub/blob/main/docs/guides/release-intelligence.md">リリースの読み方</a></p>
 </section>
 <!-- ================= STUDY ================= -->
 <section id="study" class="panel">
@@ -539,17 +539,17 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
 
 <div class="killer"><b>間違い問題だけを回す</b>
 <ol>
-<li>誤答、勘で正解、2択までしか絞れなかった問題だけを<a href="https://github.com/hjosugi/cloud-hub/blob/main/wrong-answers/aip-c01.md">AIP-C01間違いノート</a>へ1行追加する。</li>
+<li>誤答、勘で正解、2択までしか絞れなかった問題だけを<a href="https://github.com/hjosugi/cloud-hub/blob/main/docs/learning/aip-c01/wrong-answers.md">AIP-C01間違いノート</a>へ1行追加する。</li>
 <li>「誤答原因」「見落とした要件語」「次回の一行ルール」を書く。設問全文は転載しない。</li>
 <li>翌日、3日後、7日後に一行ルールを隠して説明し、3回連続で説明できたら定着済みへ移す。</li>
 </ol>
 </div>
 
 <div class="grid2">
-  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/study/aip-c01/domain-guide.md"><b>ドメイン別判断ガイド</b><span>D1〜D5をサービス暗記ではなく要件→設計判断として整理。</span></a>
-  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/study/aip-c01/flashcards.md"><b>50フラッシュカード</b><span>RAG、agent、Guardrails、性能、評価の頻出比較を10秒回答。</span></a>
-  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/study/aip-c01/scenario-drills.md"><b>20シナリオ演習</b><span>オリジナル設問で要件語、消去理由、正解patternを確認。</span></a>
-  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/notes/aip-c01-exam1-notes.md"><b>模試#1 75問圧縮</b><span>全問一行要約、ひっかけ、横断判断軸を20分で周回。</span></a>
+  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/docs/learning/aip-c01/domain-guide.md"><b>ドメイン別判断ガイド</b><span>D1〜D5をサービス暗記ではなく要件→設計判断として整理。</span></a>
+  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/docs/learning/aip-c01/flashcards.md"><b>50フラッシュカード</b><span>RAG、agent、Guardrails、性能、評価の頻出比較を10秒回答。</span></a>
+  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/docs/learning/aip-c01/scenario-drills.md"><b>20シナリオ演習</b><span>オリジナル設問で要件語、消去理由、正解patternを確認。</span></a>
+  <a class="study-link" href="https://github.com/hjosugi/cloud-hub/blob/main/docs/learning/aip-c01/exam-1-notes.md"><b>模試#1 75問圧縮</b><span>全問一行要約、ひっかけ、横断判断軸を20分で周回。</span></a>
 </div>
 
 <h2>公式ドメイン配分</h2>

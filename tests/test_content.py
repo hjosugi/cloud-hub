@@ -6,22 +6,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+REPOSITORY_LINK_RE = re.compile(
+    r"https://github\.com/hjosugi/cloud-hub/blob/main/([^\"#?]+)"
+)
 
 
 class LearningContentTests(unittest.TestCase):
     def test_aip_flashcard_count(self):
-        text = (ROOT / "study/aip-c01/flashcards.md").read_text(encoding="utf-8")
+        text = (ROOT / "docs/learning/aip-c01/flashcards.md").read_text(encoding="utf-8")
         self.assertEqual(50, len(re.findall(r"^### \d+$", text, re.MULTILINE)))
 
     def test_scenario_drill_count(self):
-        text = (ROOT / "study/aip-c01/scenario-drills.md").read_text(encoding="utf-8")
+        text = (ROOT / "docs/learning/aip-c01/scenario-drills.md").read_text(encoding="utf-8")
         self.assertEqual(20, len(re.findall(r"^## \d+\.", text, re.MULTILINE)))
 
     def test_local_markdown_links_exist(self):
         files = [ROOT / "README.md"]
-        files.extend((ROOT / "study").rglob("*.md"))
-        files.extend((ROOT / "wrong-answers").rglob("*.md"))
-        files.extend((ROOT / "guide").rglob("*.md"))
+        files.extend((ROOT / "docs").rglob("*.md"))
         missing = []
         for source in files:
             for target in LINK_RE.findall(source.read_text(encoding="utf-8")):
@@ -37,6 +38,15 @@ class LearningContentTests(unittest.TestCase):
         self.assertIn('data-t="learn"', html)
         self.assertIn('id="learn"', html)
         self.assertIn("50フラッシュカード", html)
+
+    def test_site_repository_links_exist(self):
+        html = (ROOT / "site/cloud-hub.html").read_text(encoding="utf-8")
+        missing = [
+            path
+            for path in REPOSITORY_LINK_RE.findall(html)
+            if not (ROOT / path).exists()
+        ]
+        self.assertEqual([], missing)
 
     def test_site_leads_with_design_operations_and_release_views(self):
         html = (ROOT / "site/cloud-hub.html").read_text(encoding="utf-8")
@@ -58,7 +68,7 @@ class LearningContentTests(unittest.TestCase):
             "release-intelligence.md",
             "service-and-cost-comparison.md",
         )
-        self.assertEqual(expected, tuple(path.name for path in sorted((ROOT / "guide").glob("*.md")) if path.name != "README.md"))
+        self.assertEqual(expected, tuple(path.name for path in sorted((ROOT / "docs/guides").glob("*.md"))))
 
     def test_purpose_catalog_has_four_clouds_and_official_links(self):
         data = json.loads((ROOT / "site/data/service-catalog.json").read_text(encoding="utf-8"))

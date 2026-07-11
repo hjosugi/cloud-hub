@@ -1,6 +1,6 @@
 # GCP PDE 間違い問題
 
-参照: [Domain 1 50問圧縮ノート](../notes/pde-domain1-design-notes.md)
+参照: [Domain 1 50問圧縮ノート](domain-1-notes.md)
 
 ## 未定着
 

@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.1.1 — 2026-07-11
+
+### Changed
+
+- 設計・運用ガイドと学習コンテンツを`docs/`配下へ集約
+- README、公開サイト、テスト、フィード生成文言を新しい構成へ更新
+- 公開サイトから参照するrepository内リンクの検証を追加
+
+### Removed
+
+- 不要になった`HANDOFF.md`、`PROGRESS.md`
+- repository内で重複管理していた`issues/`とissue作成script
+- 分散していた`guide/`、`study/`、`notes/`、`wrong-answers/`の旧ディレクトリ
+
 ## 2.1.0 — 2026-07-11
 
 ### Added

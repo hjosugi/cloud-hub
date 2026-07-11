@@ -240,5 +240,5 @@ CountTokens API / Bedrock Data Automation / AgentCore (Runtime, Memory, Evaluati
 
 1. セクション1の即応表を暗記 (特にGuardrails機能セットとキャッシュ/スループットのマップ)。
 2. セクション2の表で正解列を隠して即答 → 75問20分。
-3. 間違えた問題だけ `wrong-answers/aip-c01.md` に「要件語→一行ルール」で記録し、対応するドメインガイドへ戻る。
+3. 間違えた問題だけ [間違い問題ノート](wrong-answers.md) に「要件語→一行ルール」で記録し、対応するドメインガイドへ戻る。
 4. 模試#2を解いたら同形式で追記。
