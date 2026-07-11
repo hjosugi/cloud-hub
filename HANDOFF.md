@@ -23,6 +23,8 @@
 | site/quad-cloud-ops.html | 完成 | GitHub Pages対応。分析済み静的JSONを表示 |
 | scripts/build_feed_digest.py | 完成 | 公式4フィードを依存ゼロの小型ML+ルールで日次分析 |
 | .github/workflows/site.yml | 完成 | テスト、データ更新、Pages配信を自動化 |
+| scripts/score_tracker.py | 完成 | JSON記録、Markdown集計、サイトの模試進捗タブ |
+| scripts/feed_calibration.py | 完成 | 月次20件レビュー、precision/recall算出。2026-07ラベル入力待ち |
 | notes/pde-domain1-design-notes.md | 完成 | Udemy PDE模試 Domain1 (50問) |
 | notes/aip-c01-exam1-notes.md | 完成 | Kane/Maarek AIP-C01 模試#1 (75問) |
 | AIP-C01 模試#2 ノート | **ブロック中** | 添付アップロードが2回連続で空 (0バイト)。本文のチャット直貼りで解除 |
@@ -66,6 +68,7 @@
 3. 月次: issues/CERT-009 の定点観測URLを巡回し、サイトの資格表とPROGRESS.mdを更新。
 4. ノート追加時は README.md の構成ツリーと PROGRESS.md の表も更新する。
 5. フィード分析の月次校正は CERT-012 に従い、上位20件の誤分類と緊急項目の見逃しを記録する。
+6. 模試後は `score_tracker.py add` で記録し、生成されたJSONとMarkdownをcommitする。
 
 ## 6. 検証済みファクトの一次情報
 

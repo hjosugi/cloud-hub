@@ -7,6 +7,9 @@ Labels: site,enhancement,recurring,P2
 
 ## タスク
 
+- [x] 月次上位20件のレビューJSON生成を自動化する
+- [x] カテゴリ正解率と緊急precision/recall/F1の集計を自動化する
+- [x] 2026-07レビューキューを生成する
 - [ ] 月1回、上位20件に正解カテゴリと本来の優先度を人手で付与する
 - [ ] 誤分類を `config/training-data.json` の代表文へ反映する
 - [ ] 緊急項目の見逃し (false negative) を最優先で確認する

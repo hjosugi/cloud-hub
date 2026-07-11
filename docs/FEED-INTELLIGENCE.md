@@ -78,3 +78,17 @@ python3 -m http.server -d site 8000
 - 月額上限、キャッシュ、個人情報を送らない境界を定義した。
 
 必要になった場合も、上位スコア項目だけを週次バッチで要約し、全件推論は避ける。
+
+## 月次校正
+
+```bash
+python3 scripts/feed_calibration.py prepare --month YYYY-MM
+```
+
+`calibration/reviews/YYYY-MM.json` の上位20件について、公式リンクを確認して `actual_category` と `actual_priority` を入力する。入力後に次を実行する。
+
+```bash
+python3 scripts/feed_calibration.py evaluate --month YYYY-MM
+```
+
+レポートではカテゴリ正解率に加え、「今すぐ確認」のprecision、recall、F1、false negativeを計算する。緊急Recallを最優先し、見逃しが1件でもあれば対応語を明示ルールへ追加し、再現テストを作る。

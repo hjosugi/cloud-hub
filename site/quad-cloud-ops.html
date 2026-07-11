@@ -108,6 +108,10 @@ button.act:hover{opacity:.85}
 .tag{display:inline-block;font-family:var(--mono);font-size:9px;background:#EEF2F5;padding:1px 5px;margin:0 3px 3px 0;color:var(--sub)}
 .method{background:var(--panel);border:1px solid var(--line);padding:10px 14px;margin:14px 0;font-size:12px}
 .method summary{cursor:pointer;font-family:var(--mono);font-size:11px}
+.scorebar{height:7px;background:#E5EAF0;margin-top:5px;overflow:hidden}
+.scorebar i{display:block;height:100%;background:var(--gcp)}
+.ready{font-family:var(--mono);font-size:11px;font-weight:600}
+.ready.go{color:#166534}.ready.watch{color:#A16207}.ready.wait{color:#991B1B}
 .small{font-size:12px;color:var(--sub)}
 footer{border-top:1px solid var(--line);background:var(--panel)}
 .fwrap{max-width:1180px;margin:0 auto;padding:16px 20px;font-family:var(--mono);font-size:11px;color:var(--sub);letter-spacing:.05em}
@@ -130,6 +134,7 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
   <button data-t="net">ネットワーク</button>
   <button data-t="iam">IAM / ロール</button>
   <button data-t="study">最小努力学習法</button>
+  <button data-t="progress">模試進捗</button>
 </div></nav>
 <main>
 <!-- ================= DASHBOARD ================= -->
@@ -416,6 +421,22 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
 <tr><td class="cat">SDK/API</td><td class="c-aws"><a href="https://docs.aws.amazon.com/sdk-for-java/">SDK for Java</a></td><td class="c-azure"><a href="https://learn.microsoft.com/azure/developer/java/">Azure for Java</a></td><td class="c-gcp"><a href="https://cloud.google.com/java/docs">GCP for Java</a></td><td class="c-oci"><a href="https://docs.oracle.com/en-us/iaas/tools/java/latest/">SDK for Java</a></td></tr>
 </tbody></table></div>
 </section>
+<!-- ================= PROGRESS ================= -->
+<section id="progress" class="panel">
+<h2>模試スコアと受験準備度</h2>
+<p class="lead">直近3回の平均と最低スコアを使い、85%を基準に受験候補・要確認・延期推奨を判定する。スコアはGit管理されたJSONが唯一のデータ源なので、ブラウザや端末をまたいでも履歴が残る。</p>
+<div class="metrics" id="score-metrics"></div>
+<div class="grid2" id="readiness-cards"><div class="card fstat">スコアデータを読み込んでいます…</div></div>
+<h2>受験履歴</h2>
+<div class="tbl"><table>
+<thead><tr><th>日付</th><th>試験</th><th>セット / 回</th><th>正答率</th><th>弱ドメイン</th><th>メモ</th></tr></thead>
+<tbody id="score-rows"><tr><td colspan="6" class="fstat">読込中…</td></tr></tbody>
+</table></div>
+<div class="killer"><b>記録コマンド</b>
+<p class="small">例: <span class="code">python3 scripts/score_tracker.py add --exam AIP-C01 --set "Practice #1" --score 82 --weak-domains D3,D5 --notes "Guardrailsを復習"</span></p>
+<p class="small">JSONと<a href="https://github.com/hjosugi/cloud-cert-kit/blob/main/notes/score-report.md">Markdownレポート</a>が同時更新される。変更をcommit/pushするとこの画面へ反映される。</p>
+</div>
+</section>
 </main>
 <footer><div class="rail"><i></i><i></i><i></i><i></i></div>
 <div class="fwrap">QUAD CLOUD OPS — static / no tracking / feed intelligence built by GitHub Actions. 試験情報は2026-07時点で公式ページと照合済み。最終判断は各リンク先の公式情報で。</div></footer>
@@ -435,6 +456,7 @@ if (h) { const b = [...tabs].find(x => x.dataset.t === h); if (b) b.click(); }
 
 // ---- analyzed feed digest ----
 const DIGEST_URL = 'data/feed-digest.json';
+const SCORES_URL = 'data/scores.json';
 let digestItems = [];
 let activeFilter = 'all';
 function esc(s){ const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
@@ -495,6 +517,56 @@ async function loadDigest(){
     document.getElementById('digest-list').innerHTML = '<div class="card fstat">ローカルで直接HTMLを開いた場合は、<span class="code">python3 -m http.server -d site 8000</span> で配信するか、Markdown版を開いてください。</div>';
   }
 }
+function readinessFor(exam, attempts, target){
+  const scores = attempts.map(item => Number(item.score));
+  if (!scores.length) return {label:'未判定', cls:'watch', reason:'模試スコアを記録する'};
+  const recent = scores.slice(-3);
+  const avg = recent.reduce((sum, value) => sum + value, 0) / recent.length;
+  if (recent.length >= 2 && avg >= target && Math.min(...recent) >= target - 3)
+    return {label:'受験候補', cls:'go', reason:'直近' + recent.length + '回平均 ' + avg.toFixed(1) + '%'};
+  if (avg >= target - 5)
+    return {label:'要確認', cls:'watch', reason:'目標まで ' + (target - avg).toFixed(1) + 'pt'};
+  return {label:'延期推奨', cls:'wait', reason:'目標まで ' + (target - avg).toFixed(1) + 'pt'};
+}
+async function loadScores(){
+  const metrics = document.getElementById('score-metrics');
+  const cards = document.getElementById('readiness-cards');
+  const rows = document.getElementById('score-rows');
+  try {
+    const response = await fetch(SCORES_URL + '?v=' + Date.now(), {signal: AbortSignal.timeout(12000)});
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const data = await response.json();
+    const attempts = data.attempts || [];
+    const scored = attempts.map(item => Number(item.score));
+    const latest = scored.length ? scored[scored.length - 1].toFixed(1) + '%' : '—';
+    const average = scored.length ? (scored.reduce((sum, value) => sum + value, 0) / scored.length).toFixed(1) + '%' : '—';
+    metrics.innerHTML = '<div class="metric"><b>' + esc(String(attempts.length)) + '</b><span>記録済み模試</span></div>' +
+      '<div class="metric"><b>' + esc(latest) + '</b><span>最新スコア</span></div>' +
+      '<div class="metric"><b>' + esc(average) + '</b><span>全体平均</span></div>' +
+      '<div class="metric"><b>' + esc(String(Object.keys(data.targets || {}).length)) + '</b><span>追跡中の試験</span></div>';
+    cards.innerHTML = Object.entries(data.targets || {}).map(([exam, target]) => {
+      const own = attempts.filter(item => item.exam === exam).sort((a,b) => a.date.localeCompare(b.date) || a.attempt - b.attempt);
+      const status = readinessFor(exam, own, Number(target));
+      const current = own.length ? Number(own[own.length - 1].score) : 0;
+      return '<div class="card"><h3>' + esc(exam) + '</h3><span class="ready ' + status.cls + '">' + esc(status.label) + '</span>' +
+        '<p class="small">' + esc(status.reason) + ' / 目標 ' + esc(String(target)) + '%</p>' +
+        '<div class="scorebar" aria-label="最新スコア ' + esc(String(current)) + '%"><i style="width:' + Math.max(0,Math.min(100,current)) + '%"></i></div></div>';
+    }).join('');
+    if (!attempts.length){
+      rows.innerHTML = '<tr><td colspan="6" class="fstat">未記録。下のコマンドで最初のスコアを追加してください。</td></tr>';
+      return;
+    }
+    rows.innerHTML = [...attempts].sort((a,b) => b.date.localeCompare(a.date) || b.attempt - a.attempt).map(item =>
+      '<tr><td>' + esc(item.date) + '</td><td>' + esc(item.exam) + '</td><td>' + esc(item.set) + ' / ' + esc(String(item.attempt)) +
+      '</td><td><b>' + esc(Number(item.score).toFixed(1)) + '%</b></td><td>' + esc((item.weak_domains || []).join(', ') || '—') +
+      '</td><td>' + esc(item.notes || '—') + '</td></tr>'
+    ).join('');
+  } catch (error) {
+    metrics.innerHTML = '';
+    cards.innerHTML = '<div class="card fstat">スコアデータを読み込めませんでした。</div>';
+    rows.innerHTML = '<tr><td colspan="6" class="fstat">読込失敗</td></tr>';
+  }
+}
 document.getElementById('reload-digest').addEventListener('click', loadDigest);
 document.querySelectorAll('#digest-filters button').forEach(button => button.addEventListener('click', () => {
   document.querySelectorAll('#digest-filters button').forEach(item => item.classList.remove('on'));
@@ -503,6 +575,7 @@ document.querySelectorAll('#digest-filters button').forEach(button => button.add
   renderDigest();
 }));
 loadDigest();
+loadScores();
 </script>
 </body>
 </html>

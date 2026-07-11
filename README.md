@@ -31,10 +31,13 @@ AWS / Azure / Google Cloud / OCIの上位資格学習と実務リファレンス
 cloud-cert-kit/
 ├── .github/workflows/site.yml      日次分析 + GitHub Pagesデプロイ
 ├── config/                         フィード、学習例、判定ルール
+├── calibration/                    月次レビューキューと精度レポート
 ├── docs/FEED-INTELLIGENCE.md       設計・コスト・運用仕様
 ├── issues/                         GitHub Issue草稿
 ├── notes/                          試験問題の圧縮ノート
 ├── scripts/build_feed_digest.py    依存ゼロの収集・分析器
+├── scripts/feed_calibration.py     分類器の人手評価・精度集計
+├── scripts/score_tracker.py        模試スコア記録・受験準備度判定
 ├── site/
 │   ├── index.html                  Pages入口
 │   ├── quad-cloud-ops.html         ダッシュボード
@@ -53,6 +56,8 @@ Python 3.11以降だけで動作します。
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/build_feed_digest.py
+python3 scripts/score_tracker.py check
+python3 scripts/feed_calibration.py check
 python3 -m http.server -d site 8000
 ```
 
@@ -66,6 +71,29 @@ python3 -m http.server -d site 8000
 - 表示閾値と説明: `scripts/build_feed_digest.py`
 
 軽量分類は読む順序を決める一次スクリーニングです。採用判断、移行期限、試験改定は必ずリンク先の公式情報で確認してください。
+
+## 模試スコアの記録
+
+```bash
+python3 scripts/score_tracker.py add \
+  --exam AIP-C01 \
+  --set "Practice #1" \
+  --score 82 \
+  --weak-domains D3,D5 \
+  --notes "Guardrailsを復習"
+```
+
+`site/data/scores.json` と `notes/score-report.md` が更新され、サイトの「模試進捗」タブに反映されます。
+
+## フィード分類の月次校正
+
+```bash
+python3 scripts/feed_calibration.py prepare --month 2026-07
+# calibration/reviews/2026-07.json の actual_* を公式情報に基づいて入力
+python3 scripts/feed_calibration.py evaluate --month 2026-07
+```
+
+カテゴリ正解率と、緊急項目のprecision・recall・見逃し件数が `calibration/reports/` に出力されます。
 
 ## Issue登録
 
