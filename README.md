@@ -3,6 +3,7 @@
 AWS / Azure / Google Cloud / OCIの上位資格を、間違えた問題だけ復習しながら学ぶ静的学習キットです。公式リリースの低コスト分析と、AIP-C01/PDEの判断軸教材をGitHub Pagesで公開します。
 
 - 公開サイト: https://hjosugi.github.io/cloud-cert-kit/
+- 最新Release: https://github.com/hjosugi/cloud-cert-kit/releases/tag/v1.0.0
 - 学習コンテンツ: [study/](study/README.md)
 - 間違い復習: [wrong-answers/](wrong-answers/README.md)
 - 進捗Issue: https://github.com/hjosugi/cloud-cert-kit/issues
