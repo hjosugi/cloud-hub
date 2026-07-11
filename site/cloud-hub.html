@@ -112,10 +112,31 @@ button.act:hover{opacity:.85}
 .study-link:hover{border-color:var(--ink)}
 .study-link b{display:block;font-family:var(--mono);font-size:12px;margin-bottom:4px}
 .study-link span{font-size:12px;color:var(--sub)}
+.toolbox{background:var(--panel);border:1px solid var(--line);padding:14px 16px;margin:12px 0}
+.toolgrid{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--sub);margin-bottom:4px}
+.field input,.field select{width:100%;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;padding:9px 10px}
+.result-count{font-family:var(--mono);font-size:10.5px;color:var(--sub);margin:10px 0}
+.usecase-list{display:grid;gap:12px}
+.usecase{background:var(--panel);border:1px solid var(--line);padding:15px 16px}
+.usecase h3{margin:0 0 3px;font-family:var(--mono);font-size:13px}
+.service-quad{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.service-cell{border-top:3px solid var(--line);background:#F8FAFC;padding:9px 10px;font-size:11.5px}
+.service-cell.aws{border-color:var(--aws)}.service-cell.azure{border-color:var(--azure)}.service-cell.gcp{border-color:var(--gcp)}.service-cell.oci{border-color:var(--oci)}
+.service-cell b{display:block;font-family:var(--mono);font-size:9.5px;color:var(--sub);margin-bottom:3px}
+.service-cell span{display:block;color:var(--sub);margin-top:3px}
+.questions{margin-top:9px;color:var(--sub);font-size:12px}
+.cost-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.cost-card{background:var(--panel);border:1px solid var(--line);padding:13px 14px;overflow:hidden}
+.cost-card.aws{border-top:3px solid var(--aws)}.cost-card.azure{border-top:3px solid var(--azure)}.cost-card.gcp{border-top:3px solid var(--gcp)}.cost-card.oci{border-top:3px solid var(--oci)}
+.cost-card h3{margin:0;font-family:var(--mono);font-size:11px}.cost-card .amount{display:block;font-family:var(--mono);font-size:23px;margin:5px 0}.cost-card .sku{font-size:11px;color:var(--sub)}
+.cost-bar{height:7px;background:#E8EDF1;margin:9px 0}.cost-bar i{display:block;height:100%;background:var(--ink)}
+.assumptions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
 .small{font-size:12px;color:var(--sub)}
 footer{border-top:1px solid var(--line);background:var(--panel)}
 .fwrap{max-width:1180px;margin:0 auto;padding:16px 20px;font-family:var(--mono);font-size:11px;color:var(--sub);letter-spacing:.05em}
-@media (max-width:720px){body{font-size:14px} td,th{padding:7px 8px}.intel-grid{grid-template-columns:1fr}.intel-head{display:block}.intel-meta{white-space:normal}}
+@media (max-width:900px){.service-quad,.cost-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){body{font-size:14px} td,th{padding:7px 8px}.intel-grid,.toolgrid,.service-quad,.cost-grid,.assumptions{grid-template-columns:1fr}.intel-head{display:block}.intel-meta{white-space:normal}}
 </style>
 </head>
 <body>
@@ -130,7 +151,8 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
 <nav><div class="tabs" role="tablist">
   <button class="on" data-t="dash">リリース観測</button>
   <button data-t="philosophy">クラウド思想</button>
-  <button data-t="svc">サービス比較</button>
+  <button data-t="svc">用途検索</button>
+  <button data-t="cost">費用比較</button>
   <button data-t="net">ネットワーク</button>
   <button data-t="iam">IAM / ロール</button>
   <button data-t="ops">運用比較</button>
@@ -294,7 +316,16 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
 </section>
 <!-- ================= SERVICE MAP ================= -->
 <section id="svc" class="panel">
-<h2>サービス対応表 — 全セル公式ドキュメント直リンク</h2>
+<h2>用途からサービスを探す</h2>
+<p class="lead">サービス名が分からなくても「非同期ジョブ」「社内文書でRAG」「PaaSへ閉域接続」のような目的から候補を絞る。結果は完全互換表ではない。各カードの質問でscope、HA、identity、運用責任、課金meterを比較する。</p>
+<div class="toolbox"><div class="toolgrid">
+  <div class="field"><label for="service-search">用途・要件・サービス名</label><input id="service-search" type="search" placeholder="例: バックアップ、PostgreSQL、閉域、非同期、RAG" autocomplete="off"></div>
+  <div class="field"><label for="service-category">カテゴリ</label><select id="service-category"><option value="all">すべて</option></select></div>
+</div></div>
+<div class="result-count" id="service-result-count" aria-live="polite">カタログ読込中…</div>
+<div class="usecase-list" id="service-results" aria-live="polite"></div>
+
+<h2>サービス名対応表 — 全セル公式ドキュメント直リンク</h2>
 <p class="lead">「AWSでいうXはAzure/GCP/OCIでは何か」の即答用。名称は2026年時点の公式呼称。ドキュメントトップ: <a href="https://docs.aws.amazon.com/">AWS</a> / <a href="https://learn.microsoft.com/azure/">Azure</a> / <a href="https://cloud.google.com/docs">GCP</a> / <a href="https://docs.oracle.com/en-us/iaas/Content/home.htm">OCI</a>。CLIリファレンス: <a href="https://docs.aws.amazon.com/cli/">aws</a> / <a href="https://learn.microsoft.com/cli/azure/">az</a> / <a href="https://cloud.google.com/sdk/gcloud/reference">gcloud</a> / <a href="https://docs.oracle.com/en-us/iaas/tools/oci-cli/latest/">oci</a>。</p>
 <div class="tbl"><table>
 <thead><tr><th>カテゴリ</th><th class="aws">AWS</th><th class="azure">Azure</th><th class="gcp">Google Cloud</th><th class="oci">OCI</th></tr></thead>
@@ -333,6 +364,26 @@ footer{border-top:1px solid var(--line);background:var(--panel)}
 <li>OCIのネイティブIaCサービス「Resource Manager」= マネージドTerraform。AWSの「Resource Manager」的な名前だが別物。</li>
 <li>「SageMaker」は2024年末からデータ+AI統合基盤(Unified Studio)に拡張。旧来のML基盤は「SageMaker AI」と呼ぶ。</li>
 </ul></div>
+</section>
+<!-- ================= COST COMPARISON ================= -->
+<section id="cost" class="panel">
+<h2>同程度の構成で費用を比べる</h2>
+<p class="lead">同じ入力条件を公開On-Demand/Pay-as-you-go単価へ掛けるcapacity-matchの概算。これは請求予測でも性能benchmarkでもなく、費用の桁と支配要因を理解するためのbaseline。安い順だけで採用せず、下の差分と除外項目を確認する。</p>
+<div class="toolbox">
+  <div class="toolgrid">
+    <div class="field"><label for="cost-scenario">比較する構成</label><select id="cost-scenario"></select></div>
+    <div class="field"><label id="cost-units-label" for="cost-units">数量</label><input id="cost-units" type="number" min="0" step="1" value="1"></div>
+    <div class="field" id="cost-usage-field"><label id="cost-usage-label" for="cost-usage">月間稼働時間</label><input id="cost-usage" type="number" min="0" max="744" step="1" value="730"></div>
+  </div>
+</div>
+<div class="result-count" id="cost-status" aria-live="polite">価格データ読込中…</div>
+<div class="cost-grid" id="cost-results"></div>
+<div class="assumptions">
+  <div class="card"><h3>揃えた条件</h3><ul id="cost-assumptions"></ul></div>
+  <div class="card"><h3>この概算に含めないもの</h3><ul id="cost-exclusions"></ul></div>
+</div>
+<div class="killer"><b>比較結果の読み方</b><p id="cost-formula"></p><p>容量一致は性能一致ではない。候補を絞った後は同じapplication、data、SLO、load patternでbenchmarkし、公式calculatorへdisk、LB、IP、request、backup、監視、通信、supportを追加する。</p></div>
+<p class="small"><a href="https://github.com/hjosugi/cloud-hub/blob/main/guide/service-and-cost-comparison.md">比較方法と算入範囲</a> / <a href="https://calculator.aws/">AWS Calculator</a> / <a href="https://azure.microsoft.com/pricing/calculator/">Azure Calculator</a> / <a href="https://cloud.google.com/products/calculator">Google Cloud Calculator</a> / <a href="https://www.oracle.com/cloud/costestimator.html">OCI Estimator</a></p>
 </section>
 <!-- ================= NETWORK ================= -->
 <section id="net" class="panel">
@@ -541,9 +592,106 @@ if (h) { const b = [...tabs].find(x => x.dataset.t === h); if (b) b.click(); }
 
 // ---- analyzed feed digest ----
 const DIGEST_URL = 'data/feed-digest.json';
+const CATALOG_URL = 'data/service-catalog.json';
+const COST_URL = 'data/cost-baselines.json';
 let digestItems = [];
 let activeFilter = 'all';
 function esc(s){ const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+const VENDOR_NAMES = {aws:'AWS',azure:'AZURE',gcp:'GOOGLE CLOUD',oci:'OCI'};
+
+// ---- purpose-based service catalog ----
+let serviceUseCases = [];
+function renderServiceCatalog(){
+  const query = document.getElementById('service-search').value.trim().toLocaleLowerCase('ja');
+  const category = document.getElementById('service-category').value;
+  const items = serviceUseCases.filter(item => {
+    if (category !== 'all' && item.category !== category) return false;
+    if (!query) return true;
+    const haystack = [item.title,item.summary,item.category_label,...item.keywords,...item.questions,
+      ...Object.values(item.services).flatMap(service => [service.name,service.note])].join(' ').toLocaleLowerCase('ja');
+    return query.split(/\s+/).every(term => haystack.includes(term));
+  });
+  document.getElementById('service-result-count').textContent = items.length + '用途 / 全' + serviceUseCases.length + '用途';
+  document.getElementById('service-results').innerHTML = items.length ? items.map(item => {
+    const cells = ['aws','azure','gcp','oci'].map(vendor => {
+      const service = item.services[vendor];
+      return '<div class="service-cell ' + vendor + '"><b>' + VENDOR_NAMES[vendor] + '</b><a href="' + esc(service.url) + '" target="_blank" rel="noopener">' + esc(service.name) + '</a><span>' + esc(service.note) + '</span></div>';
+    }).join('');
+    const costLink = item.cost_scenario ? '<button class="act open-cost" data-scenario="' + esc(item.cost_scenario) + '">この用途を費用比較</button>' : '';
+    return '<article class="usecase"><span class="tag">' + esc(item.category_label) + '</span><h3>' + esc(item.title) + '</h3><p>' + esc(item.summary) + '</p>' +
+      '<div class="service-quad">' + cells + '</div><div class="questions"><b>比較前に確認:</b> ' + item.questions.map(esc).join(' / ') + '</div>' + costLink + '</article>';
+  }).join('') : '<div class="card">該当する用途がありません。語を短くするか、カテゴリを「すべて」に戻してください。</div>';
+  document.querySelectorAll('.open-cost').forEach(button => button.addEventListener('click', () => {
+    document.querySelector('[data-t="cost"]').click();
+    document.getElementById('cost-scenario').value = button.dataset.scenario;
+    selectCostScenario();
+  }));
+}
+async function loadServiceCatalog(){
+  try {
+    const response = await fetch(CATALOG_URL);
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const data = await response.json();
+    serviceUseCases = data.use_cases || [];
+    const categories = [...new Map(serviceUseCases.map(item => [item.category,item.category_label])).entries()];
+    document.getElementById('service-category').insertAdjacentHTML('beforeend', categories.map(([value,label]) => '<option value="' + esc(value) + '">' + esc(label) + '</option>').join(''));
+    renderServiceCatalog();
+  } catch (error) {
+    document.getElementById('service-result-count').textContent = 'カタログを読み込めませんでした';
+  }
+}
+document.getElementById('service-search').addEventListener('input', renderServiceCatalog);
+document.getElementById('service-category').addEventListener('change', renderServiceCatalog);
+
+// ---- normalized public-price baselines ----
+let costData = null;
+function money(value){ return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2}).format(value); }
+function currentCostScenario(){ return costData && costData.scenarios.find(item => item.id === document.getElementById('cost-scenario').value); }
+function renderCostComparison(){
+  const scenario = currentCostScenario();
+  if (!scenario) return;
+  const units = Math.max(0, Number(document.getElementById('cost-units').value) || 0);
+  const usage = Math.max(0, Number(document.getElementById('cost-usage').value) || 0);
+  const estimates = Object.entries(scenario.providers).map(([vendor,item]) => {
+    const total = item.hourly_rate !== undefined ? item.hourly_rate * units * usage : item.monthly_rate * units;
+    return {vendor,item,total};
+  });
+  const max = Math.max(...estimates.map(estimate => estimate.total), 0.000001);
+  document.getElementById('cost-results').innerHTML = estimates.map(({vendor,item,total}) =>
+    '<article class="cost-card ' + vendor + '"><h3>' + VENDOR_NAMES[vendor] + '</h3><span class="amount">' + money(total) + '</span>' +
+    '<div class="sku">月額概算 / ' + esc(item.service) + '<br>' + esc(item.sku) + ' · ' + esc(item.region) + '</div>' +
+    '<div class="cost-bar"><i style="width:' + Math.max(2,(total/max*100)).toFixed(1) + '%"></i></div>' +
+    '<div class="sku">' + esc(item.capacity) + '<br><a href="' + esc(item.source) + '" target="_blank" rel="noopener">公式価格source</a></div></article>'
+  ).join('');
+  document.getElementById('cost-status').textContent = '単価確認日 ' + costData.checked_at + ' · ' + costData.currency + ' · ' + scenario.comparison_level + ' · 割引前';
+  document.getElementById('cost-formula').textContent = '式: ' + scenario.formula + '。入力: ' + units + ' ' + scenario.unit_label + (scenario.usage_label ? ' × ' + usage + ' ' + scenario.usage_label : '') + '。';
+}
+function selectCostScenario(){
+  const scenario = currentCostScenario();
+  if (!scenario) return;
+  document.getElementById('cost-units-label').textContent = scenario.unit_label;
+  document.getElementById('cost-units').value = scenario.default_units;
+  document.getElementById('cost-usage-field').hidden = !scenario.usage_label;
+  document.getElementById('cost-usage-label').textContent = scenario.usage_label || '';
+  document.getElementById('cost-usage').value = scenario.default_usage;
+  document.getElementById('cost-assumptions').innerHTML = scenario.assumptions.map(item => '<li>' + esc(item) + '</li>').join('');
+  document.getElementById('cost-exclusions').innerHTML = costData.global_exclusions.map(item => '<li>' + esc(item) + '</li>').join('');
+  renderCostComparison();
+}
+async function loadCostData(){
+  try {
+    const response = await fetch(COST_URL);
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    costData = await response.json();
+    document.getElementById('cost-scenario').innerHTML = costData.scenarios.map(item => '<option value="' + esc(item.id) + '">' + esc(item.title) + '</option>').join('');
+    selectCostScenario();
+  } catch (error) {
+    document.getElementById('cost-status').textContent = '価格baselineを読み込めませんでした';
+  }
+}
+document.getElementById('cost-scenario').addEventListener('change', selectCostScenario);
+document.getElementById('cost-units').addEventListener('input', renderCostComparison);
+document.getElementById('cost-usage').addEventListener('input', renderCostComparison);
 function priorityClass(priority){
   return priority === '今すぐ確認' ? 'urgent' : priority === '今週確認' ? 'week' : 'log';
 }
@@ -611,6 +759,8 @@ document.querySelectorAll('#digest-filters button').forEach(button => button.add
   renderDigest();
 }));
 loadDigest();
+loadServiceCatalog();
+loadCostData();
 </script>
 </body>
 </html>

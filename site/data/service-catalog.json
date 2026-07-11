@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-11",
+  "description": "用途からAWS、Azure、Google Cloud、OCIの候補サービスと比較観点を探すためのカタログ。名称の同等性を保証するものではない。",
+  "use_cases": [
+    {
+      "id": "virtual-machine",
+      "category": "compute",
+      "category_label": "コンピュート",
+      "title": "既存アプリを仮想マシンで動かす",
+      "summary": "OSへのアクセスや既存ミドルウェアを維持したまま移行する。",
+      "keywords": ["VM", "仮想マシン", "サーバー", "lift and shift", "IaaS", "Linux", "Windows"],
+      "questions": ["CPUは継続負荷かバースト型か", "OSパッチと冗長化を誰が担当するか", "ブロックストレージと通信費を含めたか"],
+      "services": {
+        "aws": {"name": "Amazon EC2", "url": "https://docs.aws.amazon.com/ec2/", "note": "instance family、AZ、EBSを別々に設計"},
+        "azure": {"name": "Azure Virtual Machines", "url": "https://learn.microsoft.com/azure/virtual-machines/", "note": "size、availability zone/set、Managed Diskを設計"},
+        "gcp": {"name": "Compute Engine", "url": "https://cloud.google.com/compute/docs", "note": "machine familyとzonal resource、diskを設計"},
+        "oci": {"name": "OCI Compute", "url": "https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm", "note": "OCPUとmemoryをFlex shapeで個別指定可能"}
+      },
+      "cost_scenario": "linux-vm-2vcpu-8gb"
+    },
+    {
+      "id": "serverless-http",
+      "category": "compute",
+      "category_label": "コンピュート",
+      "title": "HTTP APIをサーバー管理なしで動かす",
+      "summary": "リクエストに応じてスケールし、アイドル時の費用を抑える。",
+      "keywords": ["serverless", "API", "HTTP", "scale to zero", "コンテナ", "Web"],
+      "questions": ["実行時間と同時実行数はどれくらいか", "scale-to-zeroとcold startを許容できるか", "request課金と常時CPU課金の差を確認したか"],
+      "services": {
+        "aws": {"name": "AWS Lambda / App Runner", "url": "https://docs.aws.amazon.com/lambda/", "note": "関数かコンテナサービスかを実行モデルで選択"},
+        "azure": {"name": "Azure Functions / Container Apps", "url": "https://learn.microsoft.com/azure/azure-functions/", "note": "関数とコンテナで課金単位・scale-to-zeroが異なる"},
+        "gcp": {"name": "Cloud Run", "url": "https://cloud.google.com/run/docs", "note": "request-basedとinstance-based billingを選択"},
+        "oci": {"name": "OCI Functions / Container Instances", "url": "https://docs.oracle.com/en-us/iaas/Content/Functions/home.htm", "note": "FunctionsはFn Projectベース、Container Instancesは常駐型"}
+      }
+    },
+    {
+      "id": "managed-kubernetes",
+      "category": "containers",
+      "category_label": "コンテナ",
+      "title": "Kubernetesで複数サービスを運用する",
+      "summary": "Kubernetes APIを共通面にしつつ、control planeとnodeの責任を確認する。",
+      "keywords": ["Kubernetes", "K8s", "コンテナ", "microservices", "クラスタ", "pod"],
+      "questions": ["Kubernetes固有機能が本当に必要か", "control planeとnodeの課金を分けたか", "upgrade、CNI、ingress、autoscalingのownerは誰か"],
+      "services": {
+        "aws": {"name": "Amazon EKS", "url": "https://docs.aws.amazon.com/eks/", "note": "cluster feeとEC2/Fargate node費用を分離"},
+        "azure": {"name": "Azure Kubernetes Service", "url": "https://learn.microsoft.com/azure/aks/", "note": "tier、node pool、network pluginを確認"},
+        "gcp": {"name": "Google Kubernetes Engine", "url": "https://cloud.google.com/kubernetes-engine/docs", "note": "StandardとAutopilotで責任・課金が異なる"},
+        "oci": {"name": "Oracle Kubernetes Engine", "url": "https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm", "note": "managed/virtual nodeとVCN設計を確認"}
+      }
+    },
+    {
+      "id": "object-storage",
+      "category": "storage",
+      "category_label": "ストレージ",
+      "title": "画像・ログ・バックアップをオブジェクト保存する",
+      "summary": "容量だけでなく冗長性、操作回数、取り出し、通信、最低保存期間を比較する。",
+      "keywords": ["オブジェクト", "画像", "ファイル", "バックアップ", "ログ", "アーカイブ", "data lake", "S3"],
+      "questions": ["hot/cool/archiveのアクセス頻度は何か", "regionalかmulti-regionか", "request、retrieval、egress、versioningを含めたか"],
+      "services": {
+        "aws": {"name": "Amazon S3", "url": "https://docs.aws.amazon.com/s3/", "note": "storage class、request、retrieval、transferを別計算"},
+        "azure": {"name": "Azure Blob Storage", "url": "https://learn.microsoft.com/azure/storage/blobs/", "note": "tierとLRS/ZRS/GRSの冗長性を分ける"},
+        "gcp": {"name": "Cloud Storage", "url": "https://cloud.google.com/storage/docs", "note": "classとlocation、operation classを分ける"},
+        "oci": {"name": "OCI Object Storage", "url": "https://docs.oracle.com/en-us/iaas/Content/Object/home.htm", "note": "Standard/Infrequent Access/Archiveとegress無料枠を確認"}
+      },
+      "cost_scenario": "hot-object-storage"
+    },
+    {
+      "id": "relational-database",
+      "category": "database",
+      "category_label": "データベース",
+      "title": "PostgreSQL/MySQLをマネージド運用する",
+      "summary": "engine互換性だけでなくHA、backup、read replica、connection、storage IOPSを比較する。",
+      "keywords": ["RDB", "SQL", "PostgreSQL", "MySQL", "リレーショナル", "データベース", "OLTP"],
+      "questions": ["単一zoneとHA構成のどちらか", "failover時にendpointは変わるか", "compute、storage、IO、backup、licenseを含めたか"],
+      "services": {
+        "aws": {"name": "Amazon RDS / Aurora", "url": "https://docs.aws.amazon.com/rds/", "note": "RDS engineとAuroraはstorage/HA/課金モデルが異なる"},
+        "azure": {"name": "Azure SQL / Database for PostgreSQL", "url": "https://learn.microsoft.com/azure/postgresql/", "note": "engine、service tier、zone redundancyを確認"},
+        "gcp": {"name": "Cloud SQL / AlloyDB", "url": "https://cloud.google.com/sql/docs", "note": "Cloud SQLとAlloyDBで互換性・HA・性能特性が異なる"},
+        "oci": {"name": "MySQL HeatWave / Base Database", "url": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm", "note": "MySQLとOracle Databaseの要件を分離"}
+      }
+    },
+    {
+      "id": "global-database",
+      "category": "database",
+      "category_label": "データベース",
+      "title": "複数リージョンで低遅延データアクセスする",
+      "summary": "整合性、書込region、conflict、RPO/RTOを先に決める。",
+      "keywords": ["global", "グローバル", "multi-region", "分散DB", "active-active", "整合性"],
+      "questions": ["強整合性が必要な範囲はどこか", "書込場所とconflict resolutionは何か", "通常時遅延と障害時RPOを実測したか"],
+      "services": {
+        "aws": {"name": "DynamoDB Global Tables / Aurora Global Database", "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html", "note": "NoSQL multi-activeとRDB cross-region replicaを区別"},
+        "azure": {"name": "Azure Cosmos DB", "url": "https://learn.microsoft.com/azure/cosmos-db/", "note": "consistency levelとmulti-region writeを選択"},
+        "gcp": {"name": "Cloud Spanner", "url": "https://cloud.google.com/spanner/docs", "note": "instance configurationで地理配置と整合性を設計"},
+        "oci": {"name": "Globally Distributed Autonomous Database", "url": "https://docs.oracle.com/en/cloud/paas/globally-distributed-autonomous-database/", "note": "sharding topologyとreplicationを設計"}
+      }
+    },
+    {
+      "id": "analytics-warehouse",
+      "category": "data",
+      "category_label": "データ・分析",
+      "title": "大量データをSQL分析する",
+      "summary": "serverless、provisioned、lakehouseで費用の支配要因が異なる。",
+      "keywords": ["DWH", "warehouse", "分析", "BI", "SQL", "lakehouse", "データ基盤"],
+      "questions": ["scan量か予約capacityのどちらが予測しやすいか", "storageとcomputeを分離できるか", "concurrencyとdata freshnessのSLOは何か"],
+      "services": {
+        "aws": {"name": "Amazon Redshift / Athena", "url": "https://docs.aws.amazon.com/redshift/", "note": "provisioned/serverless DWHとscan課金queryを区別"},
+        "azure": {"name": "Microsoft Fabric", "url": "https://learn.microsoft.com/fabric/", "note": "capacity単位とOneLake storageを分ける"},
+        "gcp": {"name": "BigQuery", "url": "https://cloud.google.com/bigquery/docs", "note": "on-demand bytes processedとslot capacityを選択"},
+        "oci": {"name": "Autonomous Data Warehouse", "url": "https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/", "note": "ECPU/OCPUとstorage、auto scalingを確認"}
+      }
+    },
+    {
+      "id": "stream-events",
+      "category": "integration",
+      "category_label": "連携・メッセージ",
+      "title": "イベントをリアルタイム配信・処理する",
+      "summary": "queue、pub/sub、ordered stream、Kafka互換は同じものではない。",
+      "keywords": ["stream", "イベント", "Kafka", "リアルタイム", "pubsub", "メッセージ", "順序"],
+      "questions": ["consumerごとの再読込と順序保証が必要か", "保持期間とthroughput unitは何か", "at-least-onceをapplicationが処理できるか"],
+      "services": {
+        "aws": {"name": "Kinesis / MSK / EventBridge", "url": "https://docs.aws.amazon.com/kinesis/", "note": "stream、Kafka、event routingを要件で分離"},
+        "azure": {"name": "Event Hubs / Event Grid", "url": "https://learn.microsoft.com/azure/event-hubs/", "note": "telemetry streamとevent notificationを区別"},
+        "gcp": {"name": "Pub/Sub", "url": "https://cloud.google.com/pubsub/docs", "note": "subscription、ordering key、retentionを設計"},
+        "oci": {"name": "Streaming / Events", "url": "https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm", "note": "Kafka互換streamとresource event routingを区別"}
+      }
+    },
+    {
+      "id": "task-queue",
+      "category": "integration",
+      "category_label": "連携・メッセージ",
+      "title": "非同期ジョブをキューで平準化する",
+      "summary": "producerとworkerを分離し、burst、retry、dead letterを管理する。",
+      "keywords": ["queue", "キュー", "非同期", "worker", "batch", "retry", "DLQ"],
+      "questions": ["順序と重複排除が必要か", "visibility timeoutと最大処理時間は合うか", "DLQからの再処理手順はあるか"],
+      "services": {
+        "aws": {"name": "Amazon SQS", "url": "https://docs.aws.amazon.com/sqs/", "note": "Standard/FIFO、visibility timeout、DLQを設計"},
+        "azure": {"name": "Azure Service Bus", "url": "https://learn.microsoft.com/azure/service-bus-messaging/", "note": "queue/topic、session、lock、DLQを設計"},
+        "gcp": {"name": "Pub/Sub / Cloud Tasks", "url": "https://cloud.google.com/tasks/docs", "note": "event distributionとHTTP task deliveryを区別"},
+        "oci": {"name": "OCI Queue", "url": "https://docs.oracle.com/en-us/iaas/Content/queue/home.htm", "note": "visibility、retention、channelを設計"}
+      }
+    },
+    {
+      "id": "private-service-access",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "title": "PaaSへ公開インターネットを通らず接続する",
+      "summary": "private endpointのDNS、route、endpoint課金、service側policyを確認する。",
+      "keywords": ["private", "閉域", "PaaS", "endpoint", "インターネット", "プライベート接続", "DNS"],
+      "questions": ["clientからendpointまでのDNS解決はどうなるか", "consumer/provider双方のpolicyが必要か", "時間・データ処理・DNSの費用を含めたか"],
+      "services": {
+        "aws": {"name": "AWS PrivateLink / VPC endpoints", "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/", "note": "interfaceとgateway endpointで構造・料金が異なる"},
+        "azure": {"name": "Azure Private Link", "url": "https://learn.microsoft.com/azure/private-link/", "note": "Private EndpointとService Endpointを混同しない"},
+        "gcp": {"name": "Private Service Connect", "url": "https://cloud.google.com/vpc/docs/private-service-connect", "note": "Google APIs、published service、managed serviceで方式を確認"},
+        "oci": {"name": "Service Gateway / Private Endpoint", "url": "https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/servicegateway.htm", "note": "Oracle Services Network向けgatewayとprivate endpointを区別"}
+      }
+    },
+    {
+      "id": "hybrid-network",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "title": "オンプレミスとクラウドを専用線で接続する",
+      "summary": "port、provider、virtual circuit、routing、冗長回線を構成全体で比較する。",
+      "keywords": ["hybrid", "ハイブリッド", "専用線", "オンプレ", "BGP", "MPLS", "閉域網"],
+      "questions": ["物理回線と論理接続を何系統にするか", "provider障害を共有していないか", "BGP route limitとfailoverを試験したか"],
+      "services": {
+        "aws": {"name": "AWS Direct Connect", "url": "https://docs.aws.amazon.com/directconnect/", "note": "connection、VIF、gateway、SiteLinkを分解"},
+        "azure": {"name": "Azure ExpressRoute", "url": "https://learn.microsoft.com/azure/expressroute/", "note": "circuit、peering、gateway、FastPathを分解"},
+        "gcp": {"name": "Cloud Interconnect", "url": "https://cloud.google.com/network-connectivity/docs/interconnect", "note": "Dedicated/Partner、VLAN attachment、Cloud Routerを分解"},
+        "oci": {"name": "OCI FastConnect", "url": "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm", "note": "virtual circuit、DRG、provider/colocationを分解"}
+      }
+    },
+    {
+      "id": "workload-identity",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "title": "アプリへ長期鍵なしでクラウド権限を与える",
+      "summary": "workload identityと短期credentialを使い、静的access keyを減らす。",
+      "keywords": ["IAM", "identity", "認証", "権限", "鍵なし", "workload", "service account", "managed identity"],
+      "questions": ["credentialを誰が発行・更新するか", "trust policyとpermission policyを分けたか", "外部CI/CDはfederationできるか"],
+      "services": {
+        "aws": {"name": "IAM Roles / IAM Roles Anywhere", "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html", "note": "role trustとpermission policyを分ける"},
+        "azure": {"name": "Managed Identities / Workload ID", "url": "https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/", "note": "system/user-assigned identityとRBAC assignmentを分ける"},
+        "gcp": {"name": "Service Accounts / Workload Identity Federation", "url": "https://cloud.google.com/iam/docs/workload-identity-federation", "note": "service account impersonationとdirect accessを選択"},
+        "oci": {"name": "Resource Principals / Dynamic Groups", "url": "https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm", "note": "resource matching ruleとIAM policyを分ける"}
+      }
+    },
+    {
+      "id": "secrets-keys",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "title": "暗号鍵とシークレットを集中管理する",
+      "summary": "鍵、password、certificateのrotationとdata-plane accessを設計する。",
+      "keywords": ["KMS", "secret", "シークレット", "暗号鍵", "password", "certificate", "rotation"],
+      "questions": ["鍵とsecretを同じserviceで扱うか", "rotationがconsumerへどう反映されるか", "request課金とHSM料金を含めたか"],
+      "services": {
+        "aws": {"name": "AWS KMS / Secrets Manager", "url": "https://docs.aws.amazon.com/kms/", "note": "key policyとsecret resource policy、rotationを分ける"},
+        "azure": {"name": "Azure Key Vault", "url": "https://learn.microsoft.com/azure/key-vault/", "note": "keys/secrets/certificatesとRBAC/network accessを設計"},
+        "gcp": {"name": "Cloud KMS / Secret Manager", "url": "https://cloud.google.com/security/products/secret-manager", "note": "key ring locationとsecret version lifecycleを分ける"},
+        "oci": {"name": "OCI Vault", "url": "https://docs.oracle.com/en-us/iaas/Content/KeyManagement/home.htm", "note": "key、secret、HSM protection modeを設計"}
+      }
+    },
+    {
+      "id": "observability",
+      "category": "operations",
+      "category_label": "運用",
+      "title": "メトリクス・ログ・トレースを統合監視する",
+      "summary": "収集量、保持、検索、cardinality、alertの課金を分解する。",
+      "keywords": ["monitoring", "監視", "ログ", "metrics", "trace", "APM", "observability", "alert"],
+      "questions": ["user SLOを直接表すsignalは何か", "ingestionとretentionを予算化したか", "audit logとapplication logを分けたか"],
+      "services": {
+        "aws": {"name": "CloudWatch / X-Ray", "url": "https://docs.aws.amazon.com/cloudwatch/", "note": "metric、log、trace、alarmの各課金を分ける"},
+        "azure": {"name": "Azure Monitor / Application Insights", "url": "https://learn.microsoft.com/azure/azure-monitor/", "note": "Log Analytics ingestion/retentionとmetric alertを分ける"},
+        "gcp": {"name": "Google Cloud Observability", "url": "https://cloud.google.com/products/operations", "note": "Logging、Monitoring、Trace、Profilerとexclusionを設計"},
+        "oci": {"name": "Monitoring / Logging / APM", "url": "https://docs.oracle.com/en-us/iaas/Content/Monitoring/home.htm", "note": "service connectorとretention、custom metricを設計"}
+      }
+    },
+    {
+      "id": "generative-ai-rag",
+      "category": "ai",
+      "category_label": "AI",
+      "title": "社内文書を根拠に生成AIで回答する",
+      "summary": "modelだけでなくingestion、embedding、vector search、guardrail、evaluationを構成として比較する。",
+      "keywords": ["生成AI", "GenAI", "RAG", "LLM", "ベクトル", "チャット", "agent", "検索"],
+      "questions": ["data residencyとmodel利用条件は何か", "embeddingとvector storeを交換可能にするか", "grounding、citation、evaluationをどう測るか"],
+      "services": {
+        "aws": {"name": "Amazon Bedrock / Knowledge Bases", "url": "https://docs.aws.amazon.com/bedrock/", "note": "model、Knowledge Base、Guardrails、evaluationを分ける"},
+        "azure": {"name": "Microsoft Foundry / Azure AI Search", "url": "https://learn.microsoft.com/azure/ai-foundry/", "note": "model catalog、agent、search、content safetyを分ける"},
+        "gcp": {"name": "Vertex AI / Vertex AI Search", "url": "https://cloud.google.com/vertex-ai/docs", "note": "Gemini、RAG Engine/Search、evaluation、safetyを分ける"},
+        "oci": {"name": "OCI Generative AI / Generative AI Agents", "url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm", "note": "model endpoint、agent、OpenSearch/Database 23ai連携を分ける"}
+      }
+    }
+  ]
+}

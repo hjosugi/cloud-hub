@@ -7,7 +7,7 @@ REPO="${REPO:?Set REPO=owner/name}"
 cd "$(dirname "$0")"
 
 # ラベル作成 (存在すればスキップ)
-for l in notes study ops site decision enhancement recurring blocked aip-c01 gcp-pde architecture reliability release hub P1 P2 P3; do
+for l in notes study ops site decision enhancement recurring blocked aip-c01 gcp-pde architecture reliability release hub cost P1 P2 P3; do
   gh label create "$l" --repo "$REPO" 2>/dev/null || true
 done
 

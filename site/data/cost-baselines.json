@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-07-11",
+  "currency": "USD",
+  "purpose": "要件を揃えた概算比較。請求予測や性能ベンチマークではない。",
+  "global_exclusions": ["税", "契約・個別割引", "無料枠", "support plan", "為替", "ログ・監視", "backup", "Internet/region/AZ間通信"],
+  "scenarios": [
+    {
+      "id": "linux-vm-2vcpu-8gb",
+      "title": "Linux VM: 2 vCPU・8 GiB",
+      "unit_label": "インスタンス",
+      "usage_label": "月間稼働時間",
+      "default_units": 1,
+      "default_usage": 730,
+      "formula": "hourly_rate × instances × hours",
+      "comparison_level": "capacity-match",
+      "assumptions": ["Linux、x86、On-Demand/Pay-as-you-go", "米国の代表リージョン", "2 vCPUと8 GiB RAM", "compute料金のみ。disk、IPv4、LB、通信を除外", "CPU世代、バースト、network、disk性能は同一ではない"],
+      "providers": {
+        "aws": {"service": "Amazon EC2", "sku": "t3.large", "region": "us-east-1", "hourly_rate": 0.0835, "capacity": "2 vCPU / 8 GiB; burstable, baseline 30%/vCPU", "source": "https://aws.amazon.com/ec2/instance-types/t3/"},
+        "azure": {"service": "Azure Virtual Machines", "sku": "Standard_D2as_v5", "region": "eastus", "hourly_rate": 0.086, "capacity": "2 vCPU / 8 GiB; Linux consumption meter", "source": "https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview&$filter=serviceName%20eq%20%27Virtual%20Machines%27%20and%20armRegionName%20eq%20%27eastus%27%20and%20armSkuName%20eq%20%27Standard_D2as_v5%27%20and%20priceType%20eq%20%27Consumption%27"},
+        "gcp": {"service": "Compute Engine", "sku": "e2-standard-2", "region": "us-central1", "hourly_rate": 0.06701142, "capacity": "2 vCPU / 8 GiB; E2 cost-optimized family", "source": "https://cloud.google.com/products/compute/pricing/general-purpose"},
+        "oci": {"service": "OCI Compute", "sku": "VM.Standard.E4.Flex", "region": "US commercial region", "hourly_rate": 0.0484922, "capacity": "1 OCPU (=2 vCPU x86) / 8 GB; OCPU $0.032765 + memory $0.0019659/GB-hour", "source": "https://www.oracle.com/cloud/iaas-paas/"}
+      }
+    },
+    {
+      "id": "hot-object-storage",
+      "title": "ホットオブジェクトストレージ",
+      "unit_label": "保存容量 (GB/GiB-month)",
+      "usage_label": null,
+      "default_units": 1000,
+      "default_usage": 1,
+      "formula": "storage_rate × stored_GB",
+      "comparison_level": "durability-intent-match",
+      "assumptions": ["頻繁にアクセスする標準/Hot tier", "米国の代表location", "単一リージョン内でゾーン障害を意識した冗長性", "最初の1 TB相当", "request、retrieval、version、soft delete、replication、egressを除外", "GBとGiBの課金単位差を含む概算"],
+      "providers": {
+        "aws": {"service": "Amazon S3", "sku": "S3 Standard", "region": "us-east-1", "monthly_rate": 0.023, "capacity": "regional、複数AZ、最初の50 TB tier", "source": "https://aws.amazon.com/s3/pricing/"},
+        "azure": {"service": "Azure Blob Storage", "sku": "General Block Blob v2 Hot ZRS", "region": "eastus", "monthly_rate": 0.026, "capacity": "Hot、zone-redundant、0-50 TB tier", "source": "https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview&$filter=serviceName%20eq%20%27Storage%27%20and%20armRegionName%20eq%20%27eastus%27%20and%20productName%20eq%20%27General%20Block%20Blob%20v2%27%20and%20skuName%20eq%20%27Hot%20ZRS%27%20and%20meterName%20eq%20%27Hot%20ZRS%20Data%20Stored%27"},
+        "gcp": {"service": "Cloud Storage", "sku": "Standard regional", "region": "us-central1", "monthly_rate": 0.020000, "capacity": "regional Standard; $0.000027397/GiB-hour × 730h", "source": "https://cloud.google.com/storage/pricing"},
+        "oci": {"service": "OCI Object Storage", "sku": "Standard", "region": "US commercial region", "monthly_rate": 0.0334203, "capacity": "regional Standard; published IaaS/PaaS list rate", "source": "https://www.oracle.com/cloud/iaas-paas/"}
+      }
+    }
+  ]
+}

@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0 — 2026-07-11
+
+### Added
+
+- 日本語の用途・要件から探せる4クラウドサービスカタログ
+- 2 vCPU・8 GiB Linux VMのcapacity-match費用比較
+- zone障害を意識したHot object storageの概算比較
+- SKU、region、基準日、算入・除外条件、公式価格sourceの表示
+- 費用比較のlevelと最終benchmark手順
+
 ## 2.0.0 — 2026-07-11
 
 ### Changed
