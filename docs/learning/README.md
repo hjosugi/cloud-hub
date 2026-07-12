@@ -15,6 +15,10 @@
 1. [Domain 1圧縮ノート](gcp-pde/domain-1-notes.md)
 2. [間違い問題ノート](gcp-pde/wrong-answers.md)
 
+## 月次メンテナンス
+
+- [資格情報の定点観測](certification-watch.md) — 公式source、更新判断、観測log
+
 ## 間違い問題の記録
 
 正解した問題や総合点は管理しない。誤答、勘で正解、2択までしか絞れなかった問題だけを、次の4要素に圧縮する。

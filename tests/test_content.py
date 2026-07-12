@@ -39,6 +39,15 @@ class LearningContentTests(unittest.TestCase):
         self.assertIn('id="learn"', html)
         self.assertIn("50フラッシュカード", html)
 
+    def test_certification_watch_facts_are_current(self):
+        html = (ROOT / "site/cloud-hub.html").read_text(encoding="utf-8")
+        watch = (ROOT / "docs/learning/certification-watch.md").read_text(encoding="utf-8")
+        self.assertIn("AZ-500</td><td><span class=\"st sunset\">廃止予定 2026-08-31", html)
+        self.assertIn("有効2年", html)
+        self.assertNotIn("有効3年、更新は再受験", html)
+        for provider in ("AWS", "Azure", "Google Cloud", "OCI"):
+            self.assertIn(provider, watch)
+
     def test_site_repository_links_exist(self):
         html = (ROOT / "site/cloud-hub.html").read_text(encoding="utf-8")
         missing = [
