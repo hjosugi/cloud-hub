@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-07-20T21:44:01.291375Z",
+  "generated_at": "2026-07-21T21:42:21.040437Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -21,9 +21,9 @@
     },
     {
       "vendor": "gcp",
-      "status": "ok",
+      "status": "cached",
       "items": 12,
-      "message": ""
+      "message": "ParseError: syntax error: line 1, column 0"
     },
     {
       "vendor": "oci",
@@ -34,20 +34,21 @@
   ],
   "summary": {
     "total_items": 48,
-    "source_success": 4,
+    "source_success": 3,
     "source_total": 4,
     "priorities": {
       "今すぐ確認": 5,
-      "今週確認": 26,
-      "記録のみ": 17
+      "今週確認": 24,
+      "記録のみ": 19
     },
     "categories": {
       "deprecation": 16,
-      "genai": 13,
-      "data": 7,
-      "security": 5,
+      "genai": 11,
+      "data": 8,
       "network": 5,
-      "operations": 2
+      "security": 4,
+      "operations": 3,
+      "cost": 1
     },
     "vendors": {
       "gcp": 12,
@@ -58,9 +59,9 @@
     "stages": {
       "retirement": 13,
       "deprecation": 3,
-      "security": 4,
-      "ga": 12,
-      "update": 16
+      "security": 3,
+      "ga": 11,
+      "update": 18
     },
     "top_actions": [
       {
@@ -643,37 +644,6 @@
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
     {
-      "id": "34900720dd7d0c1f",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "AWS Security Hub extends unified security management to Microsoft Azure",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-security-hub-supports-monitoring-microsoft-azure/",
-      "published_at": "2026-07-07T18:21:00Z",
-      "excerpt": "Today, AWS announces that AWS Security Hub now monitors Microsoft Azure resources, extending risk analytics, cloud security posture management, vulnerability management, and security response management across both clouds. Many AWS customers running workloads in AWS and Azure hav",
-      "category": "security",
-      "category_label": "セキュリティ",
-      "tags": [
-        "security",
-        "operations",
-        "data"
-      ],
-      "priority": "今週確認",
-      "release_stage": "security",
-      "comparison_category": "security",
-      "score": 57,
-      "confidence": "高",
-      "signals": [
-        "vulnerability",
-        "security"
-      ],
-      "why_it_matters": "「vulnerability、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
-      "design_perspective": "「vulnerability、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
-      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
-      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
-    },
-    {
       "id": "e5a004d04cabb4da",
       "vendor": "gcp",
       "source": "Google Cloud Release Notes",
@@ -941,34 +911,35 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "91dd5eaa8c38715b",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Microsoft Defender security assessments for Azure Database for PostgreSQL Flexible Server",
-      "url": "https://azure.microsoft.com/updates?id=567527",
-      "published_at": "2026-07-17T14:55:28Z",
-      "excerpt": "Microsoft Defender Cloud Security Posture Management (CSPM) assessments for Azure Database for PostgreSQL Flexible Server are now generally available. You can use assessments to continuously evaluate the security posture of your Azure PostgreSQL flexible",
-      "category": "security",
-      "category_label": "セキュリティ",
+      "id": "392b567440ec76f7",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "Amazon Managed Service for Prometheus supports 1.5B active metrics and 200K rules per workspace",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-managed-service-prometheus-1500m-metrics-workspace/",
+      "published_at": "2026-07-21T14:00:00Z",
+      "excerpt": "Amazon Managed Service for Prometheus now supports up to 1.5 billion active metric time series and up to 200,000 total recording and alerting rules per workspace. Customers can also create many workspaces per account, enabling the storage and analysis of billions of Prometheus me",
+      "category": "operations",
+      "category_label": "運用・信頼性",
       "tags": [
-        "security",
-        "data"
+        "operations",
+        "genai"
       ],
       "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "security",
+      "release_stage": "update",
+      "comparison_category": "operations",
       "score": 52,
       "confidence": "高",
       "signals": [
-        "generally available",
-        "security"
+        "monitor",
+        "metric",
+        "serverless"
       ],
-      "why_it_matters": "「generally available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
-      "design_perspective": "「generally available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
-      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
+      "why_it_matters": "「monitor、metric、serverless」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
+      "design_perspective": "「monitor、metric、serverless」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
+      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
       "id": "81489d7668be41dd",
@@ -1002,34 +973,65 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "176d615997678a2d",
+      "id": "a2975f9324f1deae",
       "vendor": "aws",
       "source": "AWS What's New",
-      "title": "Amazon S3 Vectors is now available in AWS GovCloud (US) Regions",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-vectors-available-aws-govcloud-regions/",
-      "published_at": "2026-07-07T19:00:00Z",
-      "excerpt": "Amazon S3 Vectors is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West). Amazon S3 Vectors is purpose-built vector storage for AI agents, inference, Retrieval Augmented Generation (RAG), and semantic search at billion-vector scale. S3 Vectors is designed to provid",
-      "category": "genai",
-      "category_label": "生成AI",
+      "title": "Amazon SES introduces pricing plans",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ses-pricing-plans/",
+      "published_at": "2026-07-21T16:35:00Z",
+      "excerpt": "Today, Amazon Simple Email Service (SES) introduced pricing plans, making it easy to purchase and access SES capabilities without evaluating them individually. Amazon SES pricing plans include three hierarchical options: Essentials, Pro, and Enterprise. Each plan builds on the on",
+      "category": "cost",
+      "category_label": "コスト",
       "tags": [
-        "genai"
+        "cost"
       ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "genai",
-      "score": 52,
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "cost",
+      "score": 51,
       "confidence": "高",
       "signals": [
-        "now available",
-        "agent",
-        "rag"
+        "introduces",
+        "pricing",
+        "discount"
       ],
-      "why_it_matters": "「now available、agent、rag」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
-      "design_perspective": "「now available、agent、rag」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "why_it_matters": "「introduces、pricing、discount」が検出されました。継続費用または価格性能比を変える可能性がある更新です。",
+      "design_perspective": "「introduces、pricing、discount」が検出されました。継続費用または価格性能比を変える可能性がある更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
       "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
-      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+      "cross_cloud_context": "コスト領域の比較起点: AWS: Cost Explorer / Savings Plans / AZURE: Cost Management / Reservations / GCP: Cloud Billing / CUD / OCI: Cost Analysis / Universal Credits。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。オンデマンド、予約・コミット、バッチ、サーバーレスの利用率別トレードオフを整理します。",
+      "recommended_action": "料金表、commitment、データ転送、運用工数を確認し、代表ワークロードで総費用差を試算します。"
+    },
+    {
+      "id": "42e9087d890f1a0d",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "Amazon RDS for SQL Server now supports Microsoft SQL Server 2025",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sqlserver-supports-sqlserver-2025",
+      "published_at": "2026-07-21T07:00:00Z",
+      "excerpt": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Microsoft SQL Server 2025 for Enterprise, Standard, and Developer editions. SQL Server 2025 brings AI integration directly into the database engine, enabling customers to invoke external REST endpoints fr",
+      "category": "data",
+      "category_label": "データ",
+      "tags": [
+        "data",
+        "genai"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "data",
+      "score": 51,
+      "confidence": "高",
+      "signals": [
+        "bedrock",
+        "database",
+        "sql"
+      ],
+      "why_it_matters": "「bedrock、database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
+      "design_perspective": "「bedrock、database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
+      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
     },
     {
       "id": "21e891a435713d35",
@@ -1154,36 +1156,6 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "58c61c3677e8d834",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "AWS DMS Schema Conversion now supports AI agent automation",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-dms-sc-ai-agent-automation-mcp-server/",
-      "published_at": "2026-07-10T07:00:00Z",
-      "excerpt": "AWS Database Migration Service (DMS) Schema Conversion now supports AI agent automation through the AWS MCP Server. You can connect AI coding agents, including Kiro, Claude Code, and Cursor, to DMS Schema Conversion and run complete migration workflows using natural language dire",
-      "category": "genai",
-      "category_label": "生成AI",
-      "tags": [
-        "genai",
-        "data",
-        "operations"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "genai",
-      "score": 50,
-      "confidence": "高",
-      "signals": [
-        "agent"
-      ],
-      "why_it_matters": "「agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
-      "design_perspective": "「agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
-      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
-      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
-    },
-    {
       "id": "fce0470068edccf0",
       "vendor": "oci",
       "source": "OCI Release Notes",
@@ -1215,13 +1187,43 @@
       "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
     },
     {
-      "id": "8a499a772eb17fa6",
+      "id": "91dd5eaa8c38715b",
       "vendor": "azure",
       "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Support 5x churn in Azure Site Recovery",
-      "url": "https://azure.microsoft.com/updates?id=566966",
-      "published_at": "2026-07-06T15:00:33Z",
-      "excerpt": "Azure Site Recovery now supports up to 5x churn (500 MB/s per VM). This major enhancement empowers customers to confidently run high IOPS workloads with Azure Site Recovery, ensuring robust disaster recovery for even the most demanding applications like d",
+      "title": "[Launched] Generally Available: Microsoft Defender security assessments for Azure Database for PostgreSQL Flexible Server",
+      "url": "https://azure.microsoft.com/updates?id=567527",
+      "published_at": "2026-07-17T14:55:28Z",
+      "excerpt": "Microsoft Defender Cloud Security Posture Management (CSPM) assessments for Azure Database for PostgreSQL Flexible Server are now generally available. You can use assessments to continuously evaluate the security posture of your Azure PostgreSQL flexible",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tags": [
+        "security",
+        "data"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "ga",
+      "comparison_category": "security",
+      "score": 49,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "security"
+      ],
+      "why_it_matters": "「generally available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
+      "design_perspective": "「generally available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
+      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
+    },
+    {
+      "id": "b3c17146d9fd2ddd",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "[Launched] Generally Available: OpenTelemetry Metrics, Visualizations, and Enhanced Monitoring in Azure Monitor for Azure VMs and Arc Servers",
+      "url": "https://azure.microsoft.com/updates?id=564802",
+      "published_at": "2026-06-02T19:30:20Z",
+      "excerpt": "OpenTelemetry metrics and visualizations in Azure Monitor are generally available, delivering an enhanced, unified monitoring experience for Azure Virtual Machines and Arc Servers. This release consolidates key monitoring capabilities into a single experi",
       "category": "operations",
       "category_label": "運用・信頼性",
       "tags": [
@@ -1230,14 +1232,15 @@
       "priority": "記録のみ",
       "release_stage": "ga",
       "comparison_category": "operations",
-      "score": 50,
+      "score": 49,
       "confidence": "高",
       "signals": [
         "generally available",
-        "disaster recovery"
+        "monitor",
+        "metric"
       ],
-      "why_it_matters": "「generally available、disaster recovery」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、disaster recovery」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "why_it_matters": "「generally available、monitor、metric」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
+      "design_perspective": "「generally available、monitor、metric」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
       "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
       "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
