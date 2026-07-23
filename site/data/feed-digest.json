@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-07-22T21:40:23.877499Z",
+  "generated_at": "2026-07-23T21:39:28.872743Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -38,17 +38,16 @@
     "source_total": 4,
     "priorities": {
       "今すぐ確認": 6,
-      "今週確認": 25,
-      "記録のみ": 17
+      "今週確認": 27,
+      "記録のみ": 15
     },
     "categories": {
       "deprecation": 17,
-      "genai": 8,
-      "data": 7,
+      "genai": 10,
       "network": 6,
+      "data": 6,
       "security": 5,
-      "operations": 4,
-      "cost": 1
+      "operations": 4
     },
     "vendors": {
       "gcp": 12,
@@ -60,20 +59,14 @@
       "retirement": 12,
       "deprecation": 5,
       "security": 4,
-      "ga": 9,
-      "update": 18
+      "update": 18,
+      "ga": 9
     },
     "top_actions": [
       {
         "id": "ca542f7fc1a9a7fb",
         "vendor": "gcp",
         "title": "Gemini Enterprise Agent Platform — Feature: Retirement for preview models for 2.5 Flash, 2.5 Flash-Lite, and 3.1 Flash-Lite",
-        "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
-      },
-      {
-        "id": "9553dd8fdf5219e3",
-        "vendor": "gcp",
-        "title": "Gemini Enterprise Agent Platform — Deprecated: Grok 4.1 models deprecation",
         "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
       },
       {
@@ -92,6 +85,12 @@
         "id": "a60b17f5b5ca0549",
         "vendor": "gcp",
         "title": "Google SecOps — Deprecated: [Spotlight Feature] Deprecation of Google Security Operations legacy SIEM APIs",
+        "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
+      },
+      {
+        "id": "9553dd8fdf5219e3",
+        "vendor": "gcp",
+        "title": "Gemini Enterprise Agent Platform — Deprecated: Grok 4.1 models deprecation",
         "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
       }
     ]
@@ -124,38 +123,6 @@
       ],
       "why_it_matters": "「retired、retirement、agent、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
       "design_perspective": "「retired、retirement、agent、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
-      "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
-    },
-    {
-      "id": "9553dd8fdf5219e3",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Gemini Enterprise Agent Platform — Deprecated: Grok 4.1 models deprecation",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-07-08T07:00:00Z",
-      "excerpt": "Deprecated Grok 4.1 models deprecation The Grok 4.1 model family (including xai/grok-4.1-fast-reasoning and xai/grok-4.1-fast-non-reasoning ) on the Gemini Enterprise Agent Platform is deprecated and will be shut down on August 20, 2026. After this date, Google Agent Platform Mod",
-      "category": "deprecation",
-      "category_label": "廃止・移行",
-      "tags": [
-        "deprecation",
-        "genai"
-      ],
-      "priority": "今すぐ確認",
-      "release_stage": "retirement",
-      "comparison_category": "genai",
-      "score": 77,
-      "confidence": "高",
-      "signals": [
-        "deprecated",
-        "deprecation",
-        "agent",
-        "gemini"
-      ],
-      "why_it_matters": "「deprecated、deprecation、agent、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
-      "design_perspective": "「deprecated、deprecation、agent、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
       "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
       "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
@@ -248,6 +215,38 @@
       "design_perspective": "「deprecated、deprecation」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
       "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
       "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
+      "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
+    },
+    {
+      "id": "9553dd8fdf5219e3",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Gemini Enterprise Agent Platform — Deprecated: Grok 4.1 models deprecation",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-07-08T07:00:00Z",
+      "excerpt": "Deprecated Grok 4.1 models deprecation The Grok 4.1 model family (including xai/grok-4.1-fast-reasoning and xai/grok-4.1-fast-non-reasoning ) on the Gemini Enterprise Agent Platform is deprecated and will be shut down on August 20, 2026. After this date, Google Agent Platform Mod",
+      "category": "deprecation",
+      "category_label": "廃止・移行",
+      "tags": [
+        "deprecation",
+        "genai"
+      ],
+      "priority": "今すぐ確認",
+      "release_stage": "retirement",
+      "comparison_category": "genai",
+      "score": 74,
+      "confidence": "高",
+      "signals": [
+        "deprecated",
+        "deprecation",
+        "agent",
+        "gemini"
+      ],
+      "why_it_matters": "「deprecated、deprecation、agent、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
+      "design_perspective": "「deprecated、deprecation、agent、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
@@ -583,6 +582,36 @@
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
     {
+      "id": "d980219c4a124fe2",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "Amazon Bedrock AgentCore now delivers unified observability with traces and logs in a single log group",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-bedrock-agentcore-unified-observability-single-log-group/",
+      "published_at": "2026-07-23T17:00:00Z",
+      "excerpt": "Amazon Bedrock AgentCore now delivers agent traces and prompts to the same log group as your agent's logs, giving you unified observability for AI agents in a single Amazon CloudWatch log group. Previously, AgentCore split agent telemetry across multiple destinations trace spans ",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai",
+        "operations"
+      ],
+      "priority": "今週確認",
+      "release_stage": "update",
+      "comparison_category": "genai",
+      "score": 62,
+      "confidence": "高",
+      "signals": [
+        "agent",
+        "bedrock"
+      ],
+      "why_it_matters": "「agent、bedrock」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「agent、bedrock」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
       "id": "66503e788d6c5713",
       "vendor": "azure",
       "source": "Azure Service Updates",
@@ -879,6 +908,35 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
+      "id": "c8f9b3375f319143",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "Amazon SageMaker AI inference now supports G7 instances",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-ai-g7/",
+      "published_at": "2026-07-22T15:23:00Z",
+      "excerpt": "Amazon SageMaker AI inference now supports G7 instances powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs, enabling you to deploy machine learning models with up to 4.6x AI inference performance compared to previous-generation G6 instances. Customers deploying generati",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai",
+        "cost"
+      ],
+      "priority": "今週確認",
+      "release_stage": "update",
+      "comparison_category": "genai",
+      "score": 53,
+      "confidence": "高",
+      "signals": [
+        "generative ai"
+      ],
+      "why_it_matters": "「generative ai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「generative ai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
       "id": "4bf98861a2951644",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -1028,67 +1086,6 @@
       "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
-    },
-    {
-      "id": "a2975f9324f1deae",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "Amazon SES introduces pricing plans",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ses-pricing-plans/",
-      "published_at": "2026-07-21T16:35:00Z",
-      "excerpt": "Today, Amazon Simple Email Service (SES) introduced pricing plans, making it easy to purchase and access SES capabilities without evaluating them individually. Amazon SES pricing plans include three hierarchical options: Essentials, Pro, and Enterprise. Each plan builds on the on",
-      "category": "cost",
-      "category_label": "コスト",
-      "tags": [
-        "cost"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "cost",
-      "score": 51,
-      "confidence": "高",
-      "signals": [
-        "introduces",
-        "pricing",
-        "discount"
-      ],
-      "why_it_matters": "「introduces、pricing、discount」が検出されました。継続費用または価格性能比を変える可能性がある更新です。",
-      "design_perspective": "「introduces、pricing、discount」が検出されました。継続費用または価格性能比を変える可能性がある更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
-      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "コスト領域の比較起点: AWS: Cost Explorer / Savings Plans / AZURE: Cost Management / Reservations / GCP: Cloud Billing / CUD / OCI: Cost Analysis / Universal Credits。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。オンデマンド、予約・コミット、バッチ、サーバーレスの利用率別トレードオフを整理します。",
-      "recommended_action": "料金表、commitment、データ転送、運用工数を確認し、代表ワークロードで総費用差を試算します。"
-    },
-    {
-      "id": "42e9087d890f1a0d",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "Amazon RDS for SQL Server now supports Microsoft SQL Server 2025",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sqlserver-supports-sqlserver-2025",
-      "published_at": "2026-07-21T07:00:00Z",
-      "excerpt": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Microsoft SQL Server 2025 for Enterprise, Standard, and Developer editions. SQL Server 2025 brings AI integration directly into the database engine, enabling customers to invoke external REST endpoints fr",
-      "category": "data",
-      "category_label": "データ",
-      "tags": [
-        "data",
-        "genai"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "data",
-      "score": 51,
-      "confidence": "高",
-      "signals": [
-        "bedrock",
-        "database",
-        "sql"
-      ],
-      "why_it_matters": "「bedrock、database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
-      "design_perspective": "「bedrock、database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
-      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
-      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
     },
     {
       "id": "21e891a435713d35",
