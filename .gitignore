@@ -8,3 +8,9 @@ __pycache__/
 ref/
 cloud-cert-kit.zip
 cloud-hub*.zip
+.claude/skills/graphify/
+.claude/settings.local.json
+.copilot/skills/graphify/
+.codex/skills/graphify/
+.codex/hooks.json
+graphify-out/
