@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-29T21:22:40.732475Z",
+  "generated_at": "2026-08-30T21:22:51.956678Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -42,12 +42,12 @@
       "記録のみ": 9
     },
     "categories": {
-      "genai": 17,
+      "genai": 20,
       "deprecation": 10,
       "network": 8,
-      "operations": 5,
       "data": 4,
-      "security": 3,
+      "operations": 3,
+      "security": 2,
       "cost": 1
     },
     "vendors": {
@@ -60,8 +60,8 @@
       "security": 2,
       "retirement": 9,
       "deprecation": 1,
-      "ga": 17,
-      "preview": 3,
+      "ga": 16,
+      "preview": 4,
       "update": 16
     },
     "top_actions": [
@@ -98,7 +98,7 @@
       "priority": "今すぐ確認",
       "release_stage": "security",
       "comparison_category": "security",
-      "score": 79,
+      "score": 76,
       "confidence": "高",
       "signals": [
         "vulnerability",
@@ -677,69 +677,6 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "6bc1902873d7bc02",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Cloud Load Balancing — Feature: SSL policy cross-project referencing is now available for Application Load Balancers and proxy Network Load Balancers in Preview",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-08-26T07:00:00Z",
-      "excerpt": "Feature SSL policy cross-project referencing is now available for Application Load Balancers and proxy Network Load Balancers in Preview . You can use cross-project referencing to define and maintain a central SSL policy in an administrative project and reference it from target H",
-      "category": "network",
-      "category_label": "ネットワーク",
-      "tags": [
-        "network"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "network",
-      "score": 57,
-      "confidence": "高",
-      "signals": [
-        "now available",
-        "network",
-        "load balancer"
-      ],
-      "why_it_matters": "「now available、network、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
-      "design_perspective": "「now available、network、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
-      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
-    },
-    {
-      "id": "044ba9a5db91b5c0",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Azure SRE Agent VNet Integration",
-      "url": "https://azure.microsoft.com/updates?id=569695",
-      "published_at": "2026-08-26T16:51:31Z",
-      "excerpt": "Azure SRE Agent VNet Integration is now generally available. VNet integration enables Azure SRE Agent to operate within your existing network controls, including Network Security Groups (NSGs), private DNS, and firewall policies, etc. With VNet support, t",
-      "category": "network",
-      "category_label": "ネットワーク",
-      "tags": [
-        "network",
-        "security",
-        "genai"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "network",
-      "score": 56,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "agent",
-        "network",
-        "dns"
-      ],
-      "why_it_matters": "「generally available、agent、network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
-      "design_perspective": "「generally available、agent、network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
-      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
-    },
-    {
       "id": "023c1781a68940a8",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -801,68 +738,6 @@
       "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
-    },
-    {
-      "id": "77bac9905749c4ce",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Cloud Logging — Change: VM Extension Manager extension policies for the Ops Agent are Generally Available (GA) . Extension policies provide zonal and project-wide O",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-08-26T07:00:00Z",
-      "excerpt": "Change VM Extension Manager extension policies for the Ops Agent are Generally Available (GA) . Extension policies provide zonal and project-wide Ops Agent installation, version upgrades, and configuration management. For more information, see Install and manage the Ops Agent by ",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations",
-        "genai"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 55,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "agent",
-        "logging"
-      ],
-      "why_it_matters": "「generally available、agent、logging」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、agent、logging」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
-    },
-    {
-      "id": "24a7008cd34d85d9",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Cloud Monitoring — Change: VM Extension Manager extension policies for the Ops Agent are Generally Available (GA) . Extension policies provide zonal and project-wide O",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-08-26T07:00:00Z",
-      "excerpt": "Change VM Extension Manager extension policies for the Ops Agent are Generally Available (GA) . Extension policies provide zonal and project-wide Ops Agent installation, version upgrades, and configuration management. For more information, see Install and manage the Ops Agent by ",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations",
-        "genai"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 55,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "agent",
-        "monitor"
-      ],
-      "why_it_matters": "「generally available、agent、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、agent、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
       "id": "bc7fa0c4f275ac2b",
@@ -956,6 +831,97 @@
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
     {
+      "id": "29ffbf63f2b13e3d",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Gemini Enterprise Agent Platform — Feature: CodeMender updates",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-08-27T07:00:00Z",
+      "excerpt": "Feature CodeMender updates This release introduces updates to CodeMender: Model support : Support for Gemini 3.6 Flash ( gemini-3.6-flash ) and Gemini 3.7 Flash ( gemini-3.7-flash , default). Unrestricted verification : Added the --unrestricted flag to cm verify to bypass command",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai",
+        "operations"
+      ],
+      "priority": "今週確認",
+      "release_stage": "update",
+      "comparison_category": "genai",
+      "score": 54,
+      "confidence": "高",
+      "signals": [
+        "introduces",
+        "agent",
+        "gemini"
+      ],
+      "why_it_matters": "「introduces、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「introduces、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
+      "id": "6bc1902873d7bc02",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Cloud Load Balancing — Feature: SSL policy cross-project referencing is now available for Application Load Balancers and proxy Network Load Balancers in Preview",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-08-26T07:00:00Z",
+      "excerpt": "Feature SSL policy cross-project referencing is now available for Application Load Balancers and proxy Network Load Balancers in Preview . You can use cross-project referencing to define and maintain a central SSL policy in an administrative project and reference it from target H",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "network",
+      "score": 54,
+      "confidence": "高",
+      "signals": [
+        "now available",
+        "network",
+        "load balancer"
+      ],
+      "why_it_matters": "「now available、network、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「now available、network、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
+      "id": "6f510923f7d9e24a",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Managed Service for Apache Airflow — Feature: Managed Airflow remote Model Context Protocol (MCP) server is now generally available (GA).",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-08-25T07:00:00Z",
+      "excerpt": "Feature Managed Airflow remote Model Context Protocol (MCP) server is now generally available (GA). Feature Managed Airflow Agent is now available in Google Cloud Console. The agent can help you understand, diagnose, and resolve issues with failed Airflow tasks and DAG runs, opti",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "genai",
+      "score": 54,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "now available",
+        "agent"
+      ],
+      "why_it_matters": "「generally available、now available、agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「generally available、now available、agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
       "id": "e13bd57a769b7c8d",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -1014,6 +980,39 @@
       "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+    },
+    {
+      "id": "044ba9a5db91b5c0",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "[Launched] Generally Available: Azure SRE Agent VNet Integration",
+      "url": "https://azure.microsoft.com/updates?id=569695",
+      "published_at": "2026-08-26T16:51:31Z",
+      "excerpt": "Azure SRE Agent VNet Integration is now generally available. VNet integration enables Azure SRE Agent to operate within your existing network controls, including Network Security Groups (NSGs), private DNS, and firewall policies, etc. With VNet support, t",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network",
+        "security",
+        "genai"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "network",
+      "score": 53,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "agent",
+        "network",
+        "dns"
+      ],
+      "why_it_matters": "「generally available、agent、network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「generally available、agent、network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
       "id": "90dccc61244a3166",
@@ -1262,36 +1261,6 @@
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
-      "id": "3411085b09414fed",
-      "vendor": "oci",
-      "source": "OCI Release Notes",
-      "title": "Model Selection, Scheduled Enrichment, and Background SQL Generation Available for Enterprise AI NL2SQL",
-      "url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/nl2sql-model-selection-background-generation.htm",
-      "published_at": "2026-08-26T12:00:00Z",
-      "excerpt": "Enterprise AI NL2SQL now supports model selection, scheduled enrichment, and background processing for SQL-generation requests. Model selection Select the Generative AI model that NL2SQL uses to enrich a semantic store. By using the API, you can also select a model for an individ",
-      "category": "genai",
-      "category_label": "生成AI",
-      "tags": [
-        "genai",
-        "data"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "genai",
-      "score": 51,
-      "confidence": "高",
-      "signals": [
-        "generative ai",
-        "openai"
-      ],
-      "why_it_matters": "「generative ai、openai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
-      "design_perspective": "「generative ai、openai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
-      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
-      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
-    },
-    {
       "id": "2d98ea7015336308",
       "vendor": "azure",
       "source": "Azure Service Updates",
@@ -1321,34 +1290,34 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "cb3a6a86d26d6873",
+      "id": "3411085b09414fed",
       "vendor": "oci",
       "source": "OCI Release Notes",
-      "title": "Network Firewall as a VTAP Source",
-      "url": "https://docs.oracle.com/iaas/releasenotes/network-firewall/network-firewall-as-vtap-source.htm",
+      "title": "Model Selection, Scheduled Enrichment, and Background SQL Generation Available for Enterprise AI NL2SQL",
+      "url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/nl2sql-model-selection-background-generation.htm",
       "published_at": "2026-08-26T12:00:00Z",
-      "excerpt": "Network Firewall can now be selected as a Virtual Test Access Point (VTAP) source. This lets you capture traffic packets from the VNICs attached to a network firewall for monitoring, troubleshooting, and compliance. Captured encrypted traffic remains encrypted. This feature is cu",
-      "category": "network",
-      "category_label": "ネットワーク",
+      "excerpt": "Enterprise AI NL2SQL now supports model selection, scheduled enrichment, and background processing for SQL-generation requests. Model selection Select the Generative AI model that NL2SQL uses to enrich a semantic store. By using the API, you can also select a model for an individ",
+      "category": "genai",
+      "category_label": "生成AI",
       "tags": [
-        "network",
-        "security",
-        "operations"
+        "genai",
+        "data"
       ],
       "priority": "記録のみ",
       "release_stage": "update",
-      "comparison_category": "network",
+      "comparison_category": "genai",
       "score": 48,
-      "confidence": "中",
+      "confidence": "高",
       "signals": [
-        "network"
+        "generative ai",
+        "openai"
       ],
-      "why_it_matters": "「network」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
-      "design_perspective": "「network」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "why_it_matters": "「generative ai、openai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「generative ai、openai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
       "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
-      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
       "id": "d9bf5bf2cf4101dd",
@@ -1439,6 +1408,36 @@
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
+      "id": "cb3a6a86d26d6873",
+      "vendor": "oci",
+      "source": "OCI Release Notes",
+      "title": "Network Firewall as a VTAP Source",
+      "url": "https://docs.oracle.com/iaas/releasenotes/network-firewall/network-firewall-as-vtap-source.htm",
+      "published_at": "2026-08-26T12:00:00Z",
+      "excerpt": "Network Firewall can now be selected as a Virtual Test Access Point (VTAP) source. This lets you capture traffic packets from the VNICs attached to a network firewall for monitoring, troubleshooting, and compliance. Captured encrypted traffic remains encrypted. This feature is cu",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network",
+        "security",
+        "operations"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "network",
+      "score": 45,
+      "confidence": "中",
+      "signals": [
+        "network"
+      ],
+      "why_it_matters": "「network」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「network」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
       "id": "012b5d566c253678",
       "vendor": "oci",
       "source": "OCI Release Notes",
@@ -1499,33 +1498,34 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "f28b14ad1293b9e1",
+      "id": "0d4accfa9c224159",
       "vendor": "oci",
       "source": "OCI Release Notes",
-      "title": "Add ZPR security attributes for Recovery Service subnets",
-      "url": "https://docs.oracle.com/iaas/releasenotes/recovery-service/zpr-support.htm",
-      "published_at": "2026-08-26T12:00:00Z",
-      "excerpt": "You can now add Zero Trust Packet Routing (ZPR) security attributes to a Recovery Service subnet to enforce a strict least-privilege model where network-traffic is restricted unless explicitly permitted. Security attributes are labels for a resource that can be referenced in a ZP",
-      "category": "security",
-      "category_label": "セキュリティ",
+      "title": "Console AI Experience Preview: Expanded OC1 Availability and Support Integration",
+      "url": "https://docs.oracle.com/iaas/releasenotes/console/consoleai-preview-oc1-aug-2026.htm",
+      "published_at": "2026-08-25T12:00:00Z",
+      "excerpt": "Console AI is a new conversational experience in the OCI Console that helps you work faster using natural language. It supports a wide range of use cases, including exploring resources, creating and managing supported OCI resources, troubleshooting issues, understanding billing a",
+      "category": "genai",
+      "category_label": "生成AI",
       "tags": [
+        "genai",
         "security",
-        "network"
+        "cost"
       ],
       "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "security",
+      "release_stage": "preview",
+      "comparison_category": "genai",
       "score": 43,
-      "confidence": "中",
+      "confidence": "高",
       "signals": [
-        "security"
+        "agent"
       ],
-      "why_it_matters": "「security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
-      "design_perspective": "「security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "why_it_matters": "「agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
       "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
-      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     }
   ]
 }
