@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-04T21:24:08.949285Z",
+  "generated_at": "2026-09-05T21:22:27.852795Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -38,15 +38,15 @@
     "source_total": 4,
     "priorities": {
       "今すぐ確認": 2,
-      "今週確認": 32,
-      "記録のみ": 14
+      "今週確認": 33,
+      "記録のみ": 13
     },
     "categories": {
       "genai": 17,
       "deprecation": 9,
-      "operations": 9,
-      "data": 6,
-      "network": 4,
+      "network": 8,
+      "operations": 7,
+      "data": 4,
       "security": 2,
       "certification": 1
     },
@@ -61,8 +61,8 @@
       "deprecation": 3,
       "retirement": 6,
       "ga": 20,
-      "update": 14,
-      "preview": 3
+      "update": 16,
+      "preview": 1
     },
     "top_actions": [
       {
@@ -363,7 +363,7 @@
       "priority": "今週確認",
       "release_stage": "ga",
       "comparison_category": "genai",
-      "score": 66,
+      "score": 63,
       "confidence": "高",
       "signals": [
         "now available",
@@ -435,6 +435,36 @@
       "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AZ-305, SC-100, AZ-700。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
+    },
+    {
+      "id": "aef4921110590511",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "Amazon Bedrock Managed Knowledge Base now supports automatic sync scheduling for data source connectors",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-managed-knowledge-base-automatic-sync-scheduling-data-source-connectors/",
+      "published_at": "2026-09-04T21:01:00Z",
+      "excerpt": "AWS announces automatic sync scheduling for Amazon Bedrock Managed Knowledge Base, a fully managed retrieval-augmented generation (RAG) service that handles data ingestion, storage optimization, and advanced retrieval without requiring you to manage vector databases or data pipel",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai",
+        "data"
+      ],
+      "priority": "今週確認",
+      "release_stage": "update",
+      "comparison_category": "genai",
+      "score": 62,
+      "confidence": "高",
+      "signals": [
+        "agent",
+        "bedrock"
+      ],
+      "why_it_matters": "「agent、bedrock」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「agent、bedrock」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
       "id": "2a2391ef31e558cc",
@@ -651,35 +681,6 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "39edd712dcc1e269",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Gemini Enterprise Agent Platform — Feature: GLM 5.2 is available in Public Preview",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-08-24T07:00:00Z",
-      "excerpt": "Feature GLM 5.2 is available in Public Preview GLM 5.2 from Z.ai is available as a fully managed model (MaaS) in Model Garden. The model targets long-horizon agentic and coding tasks and supports a 1M-token context window. For more information, see GLM 5.2 .",
-      "category": "genai",
-      "category_label": "生成AI",
-      "tags": [
-        "genai"
-      ],
-      "priority": "今週確認",
-      "release_stage": "preview",
-      "comparison_category": "genai",
-      "score": 58,
-      "confidence": "高",
-      "signals": [
-        "agent",
-        "gemini"
-      ],
-      "why_it_matters": "「agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
-      "design_perspective": "「agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
-      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
-    },
-    {
       "id": "b1e7fd2a3cd61355",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -707,39 +708,6 @@
       "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
-    },
-    {
-      "id": "3ae0c1d5a5f1fbb5",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Azure Copilot Observability Agent supports Basic and Auxiliary table plans",
-      "url": "https://azure.microsoft.com/updates?id=570250",
-      "published_at": "2026-09-01T16:31:14Z",
-      "excerpt": "Azure Copilot Observability Agent, an AI-powered operational companion in Azure Monitor, is now covering Log Analytics data in Basic and Auxiliary table plans during interactive analysis and deep investigations. Teams can move high-volume telemetry - incl",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations",
-        "data",
-        "genai"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 55,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "agent",
-        "monitor",
-        "observability"
-      ],
-      "why_it_matters": "「generally available、agent、monitor、observability」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、agent、monitor、observability」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
       "id": "0f308a8478c20266",
@@ -892,6 +860,36 @@
       "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
+      "id": "0498fd80886b3b4f",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Virtual Private Cloud — Feature: General Availability",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-08-31T07:00:00Z",
+      "excerpt": "Feature General Availability : You can create Compute Engine instances that have multiple virtual network interfaces (vNICs) in the same VPC network. For more information, see Multiple network interfaces in the same VPC network .",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "network",
+      "score": 54,
+      "confidence": "高",
+      "signals": [
+        "general availability",
+        "network",
+        "vpc"
+      ],
+      "why_it_matters": "「general availability、network、vpc」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「general availability、network、vpc」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
       "id": "fdc536ba2480a75e",
@@ -1051,6 +1049,39 @@
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
+      "id": "3ae0c1d5a5f1fbb5",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "[Launched] Generally Available: Azure Copilot Observability Agent supports Basic and Auxiliary table plans",
+      "url": "https://azure.microsoft.com/updates?id=570250",
+      "published_at": "2026-09-01T16:31:14Z",
+      "excerpt": "Azure Copilot Observability Agent, an AI-powered operational companion in Azure Monitor, is now covering Log Analytics data in Basic and Auxiliary table plans during interactive analysis and deep investigations. Teams can move high-volume telemetry - incl",
+      "category": "operations",
+      "category_label": "運用・信頼性",
+      "tags": [
+        "operations",
+        "data",
+        "genai"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "operations",
+      "score": 52,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "agent",
+        "monitor",
+        "observability"
+      ],
+      "why_it_matters": "「generally available、agent、monitor、observability」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
+      "design_perspective": "「generally available、agent、monitor、observability」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
+      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+    },
+    {
       "id": "226c5d2c5fb61833",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -1142,158 +1173,63 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "e40372c15569d8bd",
+      "id": "83f844e101dd4803",
       "vendor": "azure",
       "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Azure Monitor Auxiliary Logs Plan in Azure Government and China regions",
-      "url": "https://azure.microsoft.com/updates?id=569899",
-      "published_at": "2026-09-01T16:29:24Z",
-      "excerpt": "The Auxiliary table plan in Azure Monitor Logs is a cost-effective option for ingesting and retaining high-volume, verbose logs used for compliance and auditing. Auxiliary Logs is now generally available in the sovereign clouds: Azure Government (Fairfax)",
-      "category": "operations",
-      "category_label": "運用・信頼性",
+      "title": "[In preview] Public Preview: Azure ExpressRoute resiliency guard",
+      "url": "https://azure.microsoft.com/updates?id=568666",
+      "published_at": "2026-08-07T15:52:31Z",
+      "excerpt": "Azure ExpressRoute resiliency guard is now available in public preview for ExpressRoute virtual network gateways. The new resiliency model property lets you specify whether a gateway is intended for a single-homed or multi-homed configuration, helping ali",
+      "category": "network",
+      "category_label": "ネットワーク",
       "tags": [
-        "operations",
-        "cost",
-        "security"
+        "network"
       ],
       "priority": "記録のみ",
       "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 51,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "monitor"
-      ],
-      "why_it_matters": "「generally available、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
-    },
-    {
-      "id": "67e2af14db4e7e67",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "Amazon Aurora MySQL 8.4.8 (compatible with MySQL 8.4.8) is now generally available",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-aurora-mysql-848-available/",
-      "published_at": "2026-09-03T16:01:00Z",
-      "excerpt": "Starting today, Amazon Aurora MySQL-Compatible Edition 8.4 will support MySQL 8.4.8. In addition to several security enhancements and bug fixes, Aurora MySQL 8.4.8 includes several improvements, such as support for post-quantum TLS (PQ-TLS) key exchange, transaction timeout, mult",
-      "category": "data",
-      "category_label": "データ",
-      "tags": [
-        "data",
-        "security"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "ga",
-      "comparison_category": "data",
+      "comparison_category": "network",
       "score": 50,
       "confidence": "高",
       "signals": [
-        "generally available",
-        "sql",
-        "aurora"
+        "now available",
+        "network",
+        "expressroute"
       ],
-      "why_it_matters": "「generally available、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
-      "design_perspective": "「generally available、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
-      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
-      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
+      "why_it_matters": "「now available、network、expressroute」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「now available、network、expressroute」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "fb7832dfe03a42fe",
+      "id": "460e5f6931af21ae",
       "vendor": "azure",
       "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Azure Monitor Auxiliary Logs Plan support for Azure tables and plan switching",
-      "url": "https://azure.microsoft.com/updates?id=569904",
-      "published_at": "2026-09-01T16:25:33Z",
-      "excerpt": "The Auxiliary table plan in Azure Monitor Logs gives you a cost-effective way to ingest and retain high-volume, verbose logs that you keep for compliance and auditing but rarely query. Two highly requested capabilities are now generally available.Auxiliar",
-      "category": "operations",
-      "category_label": "運用・信頼性",
+      "title": "[Launched] Generally Available: Custom block response code and body for Application Gateway WAF",
+      "url": "https://azure.microsoft.com/updates?id=569504",
+      "published_at": "2026-08-24T17:25:03Z",
+      "excerpt": "Announcing the General Availability of custom block response code and body for WAF integrated with Application Gateway Azure WAF integrated with Application Gateway now supports customizable response status codes and bodies for blocked requests, enabling",
+      "category": "network",
+      "category_label": "ネットワーク",
       "tags": [
-        "operations",
-        "cost",
-        "security"
+        "network"
       ],
       "priority": "記録のみ",
       "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 50,
+      "comparison_category": "network",
+      "score": 49,
       "confidence": "高",
       "signals": [
         "generally available",
-        "monitor"
+        "general availability"
       ],
-      "why_it_matters": "「generally available、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "why_it_matters": "「generally available、general availability」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「generally available、general availability」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
       "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
-    },
-    {
-      "id": "af7bc743798922fa",
-      "vendor": "oci",
-      "source": "OCI Release Notes",
-      "title": "Internet of Things (IoT) introduces Flow Runtime",
-      "url": "https://docs.oracle.com/iaas/releasenotes/internet-of-things/update-09012026.htm",
-      "published_at": "2026-09-01T12:00:00Z",
-      "excerpt": "IoT Flow Runtimes provide an OCI-managed environment for building, deploying, and running integration flows with the integrated Node-RED editor . Manage the Flow Runtime lifecycle, configure network access and File Storage mounts , and apply managed software updates. Send Node-RE",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations",
-        "genai",
-        "security"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "operations",
-      "score": 49,
-      "confidence": "高",
-      "signals": [
-        "introduces",
-        "monitor",
-        "logging",
-        "metric"
-      ],
-      "why_it_matters": "「introduces、monitor、logging、metric」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「introduces、monitor、logging、metric」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
-      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
-    },
-    {
-      "id": "af1e3670e03f407e",
-      "vendor": "oci",
-      "source": "OCI Release Notes",
-      "title": "Update Multiple Credential Attributes with DBMS_CLOUD.UPDATE_CREDENTIAL",
-      "url": "https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-09-update-multiple-credential.htm",
-      "published_at": "2026-09-01T12:00:00Z",
-      "excerpt": "You can use DBMS_CLOUD.UPDATE_CREDENTIAL to update multiple credential attributes in a single operation. This is useful when related values, such as an OCI signing key and its fingerprint, must be changed together. See UPDATE_CREDENTIAL Procedure for more information.",
-      "category": "certification",
-      "category_label": "資格・学習",
-      "tags": [
-        "certification"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "cost",
-      "score": 49,
-      "confidence": "中",
-      "signals": [
-        "credential"
-      ],
-      "why_it_matters": "「credential」が検出されました。試験範囲、受験期限、教材の鮮度または資格ロードマップに直接影響する更新です。",
-      "design_perspective": "「credential」が検出されました。試験範囲、受験期限、教材の鮮度または資格ロードマップに直接影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
-      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "コスト領域の比較起点: AWS: Cost Explorer / Savings Plans / AZURE: Cost Management / Reservations / GCP: Cloud Billing / CUD / OCI: Cost Analysis / Universal Credits。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。現行の試験ガイドと教材の差分を確認し、廃止日や改定日から逆算して学習順を調整します。",
-      "recommended_action": "公式試験ページを開き、コード、変更日、登録期限を確認します。"
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
       "id": "e30d8a3db127b9fa",
@@ -1442,62 +1378,65 @@
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
-      "id": "2c8d8fb03853cad2",
+      "id": "af7bc743798922fa",
       "vendor": "oci",
       "source": "OCI Release Notes",
-      "title": "Manage SQL Profiles",
-      "url": "https://docs.oracle.com/iaas/releasenotes/database-management/sql-profiles.htm",
+      "title": "Internet of Things (IoT) introduces Flow Runtime",
+      "url": "https://docs.oracle.com/iaas/releasenotes/internet-of-things/update-09012026.htm",
       "published_at": "2026-09-01T12:00:00Z",
-      "excerpt": "You can now view SQL profiles for a Managed Database and perform tasks such as enabling, disabling, dropping, and changing the category of a SQL profile. SQL profiles is currently available in preview mode for early exploration. For more information about feature availability and",
-      "category": "data",
-      "category_label": "データ",
+      "excerpt": "IoT Flow Runtimes provide an OCI-managed environment for building, deploying, and running integration flows with the integrated Node-RED editor . Manage the Flow Runtime lifecycle, configure network access and File Storage mounts , and apply managed software updates. Send Node-RE",
+      "category": "operations",
+      "category_label": "運用・信頼性",
       "tags": [
-        "data"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "preview",
-      "comparison_category": "data",
-      "score": 47,
-      "confidence": "高",
-      "signals": [
-        "database",
-        "sql"
-      ],
-      "why_it_matters": "「database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
-      "design_perspective": "「database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
-      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
-      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
-    },
-    {
-      "id": "d5f4a81596949ec0",
-      "vendor": "oci",
-      "source": "OCI Release Notes",
-      "title": "New Autonomous AI Database Activity Overview Dashboard",
-      "url": "https://docs.oracle.com/iaas/releasenotes/database-management/adb-activity-overview-dashboard.htm",
-      "published_at": "2026-09-01T12:00:00Z",
-      "excerpt": "You can now use the Oracle-defined Autonomous AI Database activity overview dashboard to monitor the activity, workload, and resource utilization of a single Autonomous AI Database. This dashboard provides a consolidated view of key activity and resource metrics, helping you asse",
-      "category": "data",
-      "category_label": "データ",
-      "tags": [
-        "data",
-        "operations"
+        "operations",
+        "genai",
+        "security"
       ],
       "priority": "記録のみ",
       "release_stage": "update",
-      "comparison_category": "data",
-      "score": 47,
+      "comparison_category": "operations",
+      "score": 46,
+      "confidence": "高",
+      "signals": [
+        "introduces",
+        "monitor",
+        "logging",
+        "metric"
+      ],
+      "why_it_matters": "「introduces、monitor、logging、metric」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
+      "design_perspective": "「introduces、monitor、logging、metric」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
+      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+    },
+    {
+      "id": "af1e3670e03f407e",
+      "vendor": "oci",
+      "source": "OCI Release Notes",
+      "title": "Update Multiple Credential Attributes with DBMS_CLOUD.UPDATE_CREDENTIAL",
+      "url": "https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-09-update-multiple-credential.htm",
+      "published_at": "2026-09-01T12:00:00Z",
+      "excerpt": "You can use DBMS_CLOUD.UPDATE_CREDENTIAL to update multiple credential attributes in a single operation. This is useful when related values, such as an OCI signing key and its fingerprint, must be changed together. See UPDATE_CREDENTIAL Procedure for more information.",
+      "category": "certification",
+      "category_label": "資格・学習",
+      "tags": [
+        "certification"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "cost",
+      "score": 46,
       "confidence": "中",
       "signals": [
-        "database"
+        "credential"
       ],
-      "why_it_matters": "「database」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
-      "design_perspective": "「database」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "why_it_matters": "「credential」が検出されました。試験範囲、受験期限、教材の鮮度または資格ロードマップに直接影響する更新です。",
+      "design_perspective": "「credential」が検出されました。試験範囲、受験期限、教材の鮮度または資格ロードマップに直接影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
       "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
-      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
+      "cross_cloud_context": "コスト領域の比較起点: AWS: Cost Explorer / Savings Plans / AZURE: Cost Management / Reservations / GCP: Cloud Billing / CUD / OCI: Cost Analysis / Universal Credits。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。現行の試験ガイドと教材の差分を確認し、廃止日や改定日から逆算して学習順を調整します。",
+      "recommended_action": "公式試験ページを開き、コード、変更日、登録期限を確認します。"
     },
     {
       "id": "d9bf5bf2cf4101dd",
@@ -1527,6 +1466,66 @@
       "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: OCI Architect Professional。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
+      "id": "cb3a6a86d26d6873",
+      "vendor": "oci",
+      "source": "OCI Release Notes",
+      "title": "Network Firewall as a VTAP Source",
+      "url": "https://docs.oracle.com/iaas/releasenotes/network-firewall/network-firewall-as-vtap-source.htm",
+      "published_at": "2026-08-26T12:00:00Z",
+      "excerpt": "Network Firewall can now be selected as a Virtual Test Access Point (VTAP) source. This lets you capture traffic packets from the VNICs attached to a network firewall for monitoring, troubleshooting, and compliance. Captured encrypted traffic remains encrypted.",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network",
+        "security",
+        "operations"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "network",
+      "score": 45,
+      "confidence": "中",
+      "signals": [
+        "network"
+      ],
+      "why_it_matters": "「network」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「network」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
+      "id": "012b5d566c253678",
+      "vendor": "oci",
+      "source": "OCI Release Notes",
+      "title": "Background Execution Of SQL Statements and Scripts",
+      "url": "https://docs.oracle.com/iaas/releasenotes/database-tools/backgrnd-execution.htm",
+      "published_at": "2026-08-06T12:00:00Z",
+      "excerpt": "SQL Worksheet in the Database Tools service now supports running SQL statements and scripts as background jobs. This capability enables long-running operations to continue independently of the active session, allowing you to monitor execution status and review results after compl",
+      "category": "data",
+      "category_label": "データ",
+      "tags": [
+        "data",
+        "operations"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "data",
+      "score": 45,
+      "confidence": "高",
+      "signals": [
+        "database",
+        "sql"
+      ],
+      "why_it_matters": "「database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
+      "design_perspective": "「database、sql」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
+      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
     }
   ]
 }
