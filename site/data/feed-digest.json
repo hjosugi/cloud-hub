@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-04T21:36:40.914148Z",
+  "generated_at": "2026-10-05T21:29:04.388813Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -38,16 +38,16 @@
     "source_total": 4,
     "priorities": {
       "今すぐ確認": 7,
-      "今週確認": 34,
-      "記録のみ": 7
+      "今週確認": 32,
+      "記録のみ": 9
     },
     "categories": {
-      "deprecation": 18,
-      "genai": 9,
+      "deprecation": 19,
+      "genai": 10,
       "network": 9,
-      "security": 5,
-      "data": 4,
-      "operations": 3
+      "data": 5,
+      "operations": 3,
+      "security": 2
     },
     "vendors": {
       "gcp": 12,
@@ -58,9 +58,9 @@
     "stages": {
       "retirement": 17,
       "security": 1,
-      "ga": 17,
-      "deprecation": 1,
-      "update": 11,
+      "ga": 18,
+      "deprecation": 2,
+      "update": 9,
       "preview": 1
     },
     "top_actions": [
@@ -77,15 +77,15 @@
         "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
       },
       {
-        "id": "76e91b5a2366f44d",
-        "vendor": "azure",
-        "title": "Retirement: DCsv3 and DCdsv3-series Azure Virtual Machines will be retired on October 31, 2029",
-        "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
-      },
-      {
         "id": "ea139960c9521bcf",
         "vendor": "gcp",
         "title": "Backup and DR — Deprecated: Support for backing up and restoring workloads managed via the legacy appliance management console is deprecated.",
+        "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
+      },
+      {
+        "id": "76e91b5a2366f44d",
+        "vendor": "azure",
+        "title": "Retirement: DCsv3 and DCdsv3-series Azure Virtual Machines will be retired on October 31, 2029",
         "action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
       },
       {
@@ -164,35 +164,6 @@
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
     {
-      "id": "76e91b5a2366f44d",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "Retirement: DCsv3 and DCdsv3-series Azure Virtual Machines will be retired on October 31, 2029",
-      "url": "https://azure.microsoft.com/updates?id=569592",
-      "published_at": "2026-10-01T17:02:55Z",
-      "excerpt": "On October 31, 2029, DCsv3 and DCdsv3-series Azure Linux, Windows and Dedicated Host virtual machines will be retired. After that date, they will no longer be available for use or purchase. Before October 31, 2029, migrate your workloads to one of the fo",
-      "category": "deprecation",
-      "category_label": "廃止・移行",
-      "tags": [
-        "deprecation"
-      ],
-      "priority": "今すぐ確認",
-      "release_stage": "retirement",
-      "comparison_category": "operations",
-      "score": 75,
-      "confidence": "高",
-      "signals": [
-        "retired",
-        "retirement"
-      ],
-      "why_it_matters": "「retired、retirement」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
-      "design_perspective": "「retired、retirement」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
-      "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
-    },
-    {
       "id": "ea139960c9521bcf",
       "vendor": "gcp",
       "source": "Google Cloud Release Notes",
@@ -221,6 +192,35 @@
       "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
       "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
+      "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
+    },
+    {
+      "id": "76e91b5a2366f44d",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "Retirement: DCsv3 and DCdsv3-series Azure Virtual Machines will be retired on October 31, 2029",
+      "url": "https://azure.microsoft.com/updates?id=569592",
+      "published_at": "2026-10-01T17:02:55Z",
+      "excerpt": "On October 31, 2029, DCsv3 and DCdsv3-series Azure Linux, Windows and Dedicated Host virtual machines will be retired. After that date, they will no longer be available for use or purchase. Before October 31, 2029, migrate your workloads to one of the fo",
+      "category": "deprecation",
+      "category_label": "廃止・移行",
+      "tags": [
+        "deprecation"
+      ],
+      "priority": "今すぐ確認",
+      "release_stage": "retirement",
+      "comparison_category": "operations",
+      "score": 72,
+      "confidence": "高",
+      "signals": [
+        "retired",
+        "retirement"
+      ],
+      "why_it_matters": "「retired、retirement」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
+      "design_perspective": "「retired、retirement」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
     {
@@ -604,6 +604,38 @@
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
     {
+      "id": "d84a4a7853012f23",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Dialogflow — Fixed",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-09-30T07:00:00Z",
+      "excerpt": "Fixed Dialogflow CX : An issue in Dialogflow CX was identified where sensitive authentication tokens stored in conversational session parameters could be returned in cleartext via DetectIntent API responses. A server-side fix has been applied to redact and sanitize authentication",
+      "category": "deprecation",
+      "category_label": "廃止・移行",
+      "tags": [
+        "deprecation",
+        "certification",
+        "genai"
+      ],
+      "priority": "今週確認",
+      "release_stage": "deprecation",
+      "comparison_category": "genai",
+      "score": 62,
+      "confidence": "高",
+      "signals": [
+        "deprecated",
+        "deprecation",
+        "gemini"
+      ],
+      "why_it_matters": "「deprecated、deprecation、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
+      "design_perspective": "「deprecated、deprecation、gemini」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
+      "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
+    },
+    {
       "id": "284ba277f967e401",
       "vendor": "gcp",
       "source": "Google Cloud Release Notes",
@@ -853,36 +885,6 @@
       "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
     },
     {
-      "id": "c1085b4be249a672",
-      "vendor": "oci",
-      "source": "OCI Release Notes",
-      "title": "Network Address Translation (NAT) Now Available for Dynamic Routing Gateway (DRG)",
-      "url": "https://docs.oracle.com/iaas/releasenotes/network/nat-drg.htm",
-      "published_at": "2026-10-01T12:00:00Z",
-      "excerpt": "The OCI Networking service's Dynamic Routing Gateway (DRG) now supports Network Address Translation (NAT) for IPv4 addresses. You can configure NAT policies directly on DRG attachments for source NAT, destination NAT, or both. This enables 1:1 IPv4 address translation for IP over",
-      "category": "network",
-      "category_label": "ネットワーク",
-      "tags": [
-        "network"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "network",
-      "score": 57,
-      "confidence": "高",
-      "signals": [
-        "now available",
-        "network",
-        "vcn"
-      ],
-      "why_it_matters": "「now available、network、vcn」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
-      "design_perspective": "「now available、network、vcn」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
-      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
-      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
-    },
-    {
       "id": "607526bc1f4e9452",
       "vendor": "oci",
       "source": "OCI Release Notes",
@@ -947,38 +949,6 @@
       "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
     },
     {
-      "id": "8b535b713976a60e",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "BigQuery — Change: An updated version of the Simba JDBC driver for BigQuery is now available.",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-10-01T07:00:00Z",
-      "excerpt": "Change An updated version of the Simba JDBC driver for BigQuery is now available. Feature Chatting with graphs in conversational analytics is now generally available . You can use a combination of multiple graphs, tables, views, and UDFs as data sources. Feature BigQuery pipeline",
-      "category": "data",
-      "category_label": "データ",
-      "tags": [
-        "data",
-        "genai"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "data",
-      "score": 55,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "now available",
-        "agent",
-        "analytics"
-      ],
-      "why_it_matters": "「generally available、now available、agent、analytics」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
-      "design_perspective": "「generally available、now available、agent、analytics」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
-      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
-    },
-    {
       "id": "a7802c61ab42caac",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -1011,34 +981,34 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "3c02eb31510a2504",
+      "id": "c1085b4be249a672",
       "vendor": "oci",
       "source": "OCI Release Notes",
-      "title": "New connection support for GoldenGate Veridata",
-      "url": "https://docs.oracle.com/iaas/releasenotes/goldengate/veridata-connections.htm",
+      "title": "Network Address Translation (NAT) Now Available for Dynamic Routing Gateway (DRG)",
+      "url": "https://docs.oracle.com/iaas/releasenotes/network/nat-drg.htm",
       "published_at": "2026-10-01T12:00:00Z",
-      "excerpt": "GoldenGate Veridata adds support for the following connection types: Amazon Aurora MySQL Amazon Aurora PostgreSQL Amazon RDS for MariaDB Amazon RDS for MySQL Amazon RDS for PostgreSQL Azure Cosmos DB for PostgreSQL Azure Database for MySQL Azure Database for PostgreSQL Google Clo",
-      "category": "data",
-      "category_label": "データ",
+      "excerpt": "The OCI Networking service's Dynamic Routing Gateway (DRG) now supports Network Address Translation (NAT) for IPv4 addresses. You can configure NAT policies directly on DRG attachments for source NAT, destination NAT, or both. This enables 1:1 IPv4 address translation for IP over",
+      "category": "network",
+      "category_label": "ネットワーク",
       "tags": [
-        "data"
+        "network"
       ],
       "priority": "今週確認",
-      "release_stage": "update",
-      "comparison_category": "data",
+      "release_stage": "ga",
+      "comparison_category": "network",
       "score": 54,
       "confidence": "高",
       "signals": [
-        "database",
-        "sql",
-        "aurora"
+        "now available",
+        "network",
+        "vcn"
       ],
-      "why_it_matters": "「database、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
-      "design_perspective": "「database、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "why_it_matters": "「now available、network、vcn」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「now available、network、vcn」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
       "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
-      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
       "id": "0eb3f07b22b5a329",
@@ -1226,37 +1196,6 @@
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
-      "id": "80cb5ab89d894e99",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "Announcing DNS analytics and insights for Route 53 Global Resolver and DNS Firewall",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/route-53-dns-analytics-insights/",
-      "published_at": "2026-10-01T08:00:00Z",
-      "excerpt": "Route 53 Global Resolver and DNS Firewall now provide DNS analytics and insights through native Amazon CloudWatch integration. These new capabilities enable network administrators and security teams to gain full observability into DNS query patterns, monitor DNS Firewall rule eff",
-      "category": "network",
-      "category_label": "ネットワーク",
-      "tags": [
-        "network",
-        "operations",
-        "security"
-      ],
-      "priority": "今週確認",
-      "release_stage": "update",
-      "comparison_category": "network",
-      "score": 53,
-      "confidence": "高",
-      "signals": [
-        "network",
-        "dns"
-      ],
-      "why_it_matters": "「network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
-      "design_perspective": "「network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
-      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
-      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
-    },
-    {
       "id": "2cd9861ec232672b",
       "vendor": "oci",
       "source": "OCI Release Notes",
@@ -1289,33 +1228,36 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "7cb116a04ada6ca8",
+      "id": "bc46ce65e0f9c9e8",
       "vendor": "aws",
       "source": "AWS What's New",
-      "title": "AWS IAM Identity Center extends multi-Region support to more AWS Regions",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-iam-identity-center-extends-multi-region-support-to-more-aws-regions",
-      "published_at": "2026-10-01T07:00:00Z",
-      "excerpt": "IAM Identity Center helps you connect your workforce identities to AWS once and streamline access management to AWS accounts and applications. You can now replicate IAM Identity Center to opt-in AWS Regions, and between Regions within the AWS GovCloud (US) and AWS China Regions. ",
-      "category": "security",
-      "category_label": "セキュリティ",
+      "title": "AWS Advanced Ruby Driver Wrapper is generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ruby-driver-wrapper-available/",
+      "published_at": "2026-10-05T17:00:00Z",
+      "excerpt": "The Amazon Web Services (AWS) Advanced Ruby Driver Wrapper is now generally available for use with Amazon RDS and Amazon Aurora PostgreSQL and MySQL-compatible databases. This advanced database driver reduces RDS Blue/Green switchover, Aurora Global database switchover and databa",
+      "category": "data",
+      "category_label": "データ",
       "tags": [
+        "data",
         "security"
       ],
       "priority": "今週確認",
-      "release_stage": "update",
-      "comparison_category": "security",
+      "release_stage": "ga",
+      "comparison_category": "data",
       "score": 52,
       "confidence": "高",
       "signals": [
-        "iam",
-        "identity"
+        "generally available",
+        "database",
+        "sql",
+        "aurora"
       ],
-      "why_it_matters": "「iam、identity」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
-      "design_perspective": "「iam、identity」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "why_it_matters": "「generally available、database、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
+      "design_perspective": "「generally available、database、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
       "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
-      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
+      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
+      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
     },
     {
       "id": "aadec960148575b2",
@@ -1349,33 +1291,93 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "47f9260aa9461c46",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "AWS Transfer Family now supports custom CloudWatch log groups for managed workflows",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/transfer-family-custom-cloudwatch-log-groups/",
-      "published_at": "2026-10-01T10:00:00Z",
-      "excerpt": "AWS Transfer Family now lets you choose a custom log group in Amazon CloudWatch Logs for managed workflow execution logs. You can organize workflow logs to monitor individual workflows separately or bring logs from related workflows together. Previously, every workflow attached t",
-      "category": "operations",
-      "category_label": "運用・信頼性",
+      "id": "3c02eb31510a2504",
+      "vendor": "oci",
+      "source": "OCI Release Notes",
+      "title": "New connection support for GoldenGate Veridata",
+      "url": "https://docs.oracle.com/iaas/releasenotes/goldengate/veridata-connections.htm",
+      "published_at": "2026-10-01T12:00:00Z",
+      "excerpt": "GoldenGate Veridata adds support for the following connection types: Amazon Aurora MySQL Amazon Aurora PostgreSQL Amazon RDS for MariaDB Amazon RDS for MySQL Amazon RDS for PostgreSQL Azure Cosmos DB for PostgreSQL Azure Database for MySQL Azure Database for PostgreSQL Google Clo",
+      "category": "data",
+      "category_label": "データ",
       "tags": [
-        "operations"
+        "data"
       ],
       "priority": "記録のみ",
       "release_stage": "update",
-      "comparison_category": "operations",
+      "comparison_category": "data",
       "score": 51,
       "confidence": "高",
       "signals": [
-        "monitor",
-        "workflow"
+        "database",
+        "sql",
+        "aurora"
       ],
-      "why_it_matters": "「monitor、workflow」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「monitor、workflow」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "why_it_matters": "「database、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
+      "design_perspective": "「database、sql、aurora」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
+      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
+    },
+    {
+      "id": "80cb5ab89d894e99",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "Announcing DNS analytics and insights for Route 53 Global Resolver and DNS Firewall",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/route-53-dns-analytics-insights/",
+      "published_at": "2026-10-01T08:00:00Z",
+      "excerpt": "Route 53 Global Resolver and DNS Firewall now provide DNS analytics and insights through native Amazon CloudWatch integration. These new capabilities enable network administrators and security teams to gain full observability into DNS query patterns, monitor DNS Firewall rule eff",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network",
+        "operations",
+        "security"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "network",
+      "score": 50,
+      "confidence": "高",
+      "signals": [
+        "network",
+        "dns"
+      ],
+      "why_it_matters": "「network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「network、dns」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
       "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
+      "id": "f383b3bc5bb66b16",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "AWS End User Messaging and Amazon SES now offer AI agent skills for the AWS MCP Server",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-messaging-ses-ai-skills-mcp-server/",
+      "published_at": "2026-09-25T07:00:00Z",
+      "excerpt": "AWS End User Messaging and Amazon SES now publish AI agent skills for the AWS MCP Server, enabling developers to build and send messages by asking their AI coding agent in plain language. Previously, developers had to navigate multiple documentation pages and management console s",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "update",
+      "comparison_category": "genai",
+      "score": 50,
+      "confidence": "高",
+      "signals": [
+        "agent"
+      ],
+      "why_it_matters": "「agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「agent」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
       "id": "9b04a3f9e74b8aa8",
@@ -1437,35 +1439,64 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "922be85678c3b78f",
+      "id": "476e46a7432f0076",
       "vendor": "oci",
       "source": "OCI Release Notes",
-      "title": "Managing One-Click Sign-In with Passkeys",
-      "url": "https://docs.oracle.com/iaas/releasenotes/identity/one-click-sign-in-with-passkeys.htm",
-      "published_at": "2026-09-30T12:00:00Z",
-      "excerpt": "IAM now supports One-Click Sign-In for supported applications. Important You must create a Service Request (SR) with the Identity team to enable the required feature flag for this functionality. See Support Requests . Users with an enrolled, discoverable FIDO passkey can sign in ",
-      "category": "security",
-      "category_label": "セキュリティ",
+      "title": "OCI Kubernetes Engine (OKE) support for GPU host repair",
+      "url": "https://docs.oracle.com/iaas/releasenotes/conteng/conteng_node-auto-repair.htm",
+      "published_at": "2026-10-02T12:00:00Z",
+      "excerpt": "You can now use OKE to coordinate the repair of eligible managed bare metal GPU worker nodes in response to specified hardware-related conditions. The optional GPU Health Monitoring add-on monitors supported GPU health conditions on eligible managed GPU worker nodes in enhanced c",
+      "category": "operations",
+      "category_label": "運用・信頼性",
       "tags": [
-        "security",
-        "genai"
+        "operations"
       ],
       "priority": "記録のみ",
       "release_stage": "update",
-      "comparison_category": "security",
-      "score": 45,
+      "comparison_category": "operations",
+      "score": 46,
       "confidence": "高",
       "signals": [
-        "security",
-        "iam",
-        "identity"
+        "monitor",
+        "workflow"
       ],
-      "why_it_matters": "「security、iam、identity」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
-      "design_perspective": "「security、iam、identity」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "why_it_matters": "「monitor、workflow」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
+      "design_perspective": "「monitor、workflow」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
       "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
-      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
+      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
+      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+    },
+    {
+      "id": "a5df4c257a1715fb",
+      "vendor": "oci",
+      "source": "OCI Release Notes",
+      "title": "Resource Analytics - September 2026",
+      "url": "https://docs.oracle.com/iaas/releasenotes/resource-analytics/resource-analytics-v2-7.htm",
+      "published_at": "2026-09-03T12:00:00Z",
+      "excerpt": "This release includes enhancements to Compute, Networking, Bastion, and GoldenGate data models. ADW Feature Description Data for additional Compute resources is now available. Data for compute instance maintenance events is now available. Data for additional Networking details is",
+      "category": "data",
+      "category_label": "データ",
+      "tags": [
+        "data",
+        "network",
+        "security"
+      ],
+      "priority": "記録のみ",
+      "release_stage": "ga",
+      "comparison_category": "data",
+      "score": 46,
+      "confidence": "高",
+      "signals": [
+        "now available",
+        "analytics"
+      ],
+      "why_it_matters": "「now available、analytics」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。",
+      "design_perspective": "「now available、analytics」が検出されました。保存、処理、検索、移行の選択肢または性能・運用特性に関わる更新です。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
+      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: OCI Architect Professional。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
+      "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
     },
     {
       "id": "a5127a20add611dc",
@@ -1497,37 +1528,6 @@
       "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: OCI Architect Professional。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
-    },
-    {
-      "id": "032658ffcd9cfe99",
-      "vendor": "oci",
-      "source": "OCI Release Notes",
-      "title": "Client ID Metadata Document Support for OAuth Clients",
-      "url": "https://docs.oracle.com/iaas/releasenotes/identity/client-id-metadata-documents.htm",
-      "published_at": "2026-09-23T12:00:00Z",
-      "excerpt": "IAM with identity domains now supports Client ID Metadata Documents (CIMD). An OAuth client can publish its metadata at a stable HTTPS URL and use that URL as its client_id , reducing the need to maintain a persistent client registration in every identity domain. This enhancement",
-      "category": "security",
-      "category_label": "セキュリティ",
-      "tags": [
-        "security",
-        "genai"
-      ],
-      "priority": "記録のみ",
-      "release_stage": "update",
-      "comparison_category": "security",
-      "score": 45,
-      "confidence": "高",
-      "signals": [
-        "agent",
-        "iam",
-        "identity"
-      ],
-      "why_it_matters": "「agent、iam、identity」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
-      "design_perspective": "「agent、iam、identity」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 OCIでは「compartment governanceとdatabase-centered enterprise workloadを明示的に構成する」前提で、Tenancy / Compartment / Region / Availability Domain / Fault Domainのどこが変わるかを確認します。",
-      "operations_perspective": "Monitoring・Logging・Audit・Cloud GuardとDB version、shape、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: OCI Architect Professional。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
-      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
     },
     {
       "id": "67119c4a73a9afd1",
