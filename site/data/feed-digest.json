@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-10T21:28:06.075299Z",
+  "generated_at": "2026-10-11T21:28:16.745819Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -43,8 +43,8 @@
     },
     "categories": {
       "deprecation": 18,
-      "genai": 14,
-      "network": 6,
+      "genai": 13,
+      "network": 7,
       "data": 5,
       "security": 3,
       "cost": 1,
@@ -60,8 +60,8 @@
       "deprecation": 2,
       "retirement": 16,
       "security": 2,
-      "ga": 14,
-      "update": 14
+      "ga": 15,
+      "update": 13
     },
     "top_actions": [
       {
@@ -783,38 +783,6 @@
       "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
     },
     {
-      "id": "0498fd80886b3b4f",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Virtual Private Cloud — Feature: General Availability",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-10-07T07:00:00Z",
-      "excerpt": "Feature General Availability : VPC Flow Logs supports TCP connection logging for VM instances and serverless endpoints. Connection logging captures outbound TCP connection attempts and acknowledged inbound TCP connections. You can enable this feature in a VPC Flow Logs configurat",
-      "category": "network",
-      "category_label": "ネットワーク",
-      "tags": [
-        "network",
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "network",
-      "score": 58,
-      "confidence": "高",
-      "signals": [
-        "general availability",
-        "network",
-        "vpc",
-        "subnet"
-      ],
-      "why_it_matters": "「general availability、network、vpc、subnet」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
-      "design_perspective": "「general availability、network、vpc、subnet」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
-      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
-    },
-    {
       "id": "2844db779793f581",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -1001,35 +969,36 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "77eb0abd39a1b5cd",
+      "id": "0498fd80886b3b4f",
       "vendor": "gcp",
       "source": "Google Cloud Release Notes",
-      "title": "Gemini Enterprise Agent Platform — Feature: Anthropic's Claude Haiku 5.5",
+      "title": "Virtual Private Cloud — Feature: General Availability",
       "url": "https://docs.cloud.google.com/release-notes",
       "published_at": "2026-10-07T07:00:00Z",
-      "excerpt": "Feature Anthropic's Claude Haiku 5.5 Claude Haiku 5.5 is available in Model Garden. Fixed CodeMender updates (v0.13.0) This release introduces updates to CodeMender: Consistent finding deduplication : Improved finding deduplication consistency across repeated cm find , --deep , -",
-      "category": "genai",
-      "category_label": "生成AI",
+      "excerpt": "Feature General Availability : VPC Flow Logs supports TCP connection logging for VM instances and serverless endpoints. Connection logging captures outbound TCP connection attempts and acknowledged inbound TCP connections. You can enable this feature in a VPC Flow Logs configurat",
+      "category": "network",
+      "category_label": "ネットワーク",
       "tags": [
-        "genai",
+        "network",
         "operations"
       ],
       "priority": "今週確認",
-      "release_stage": "update",
-      "comparison_category": "genai",
+      "release_stage": "ga",
+      "comparison_category": "network",
       "score": 55,
       "confidence": "高",
       "signals": [
-        "introduces",
-        "agent",
-        "gemini"
+        "general availability",
+        "network",
+        "vpc",
+        "subnet"
       ],
-      "why_it_matters": "「introduces、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
-      "design_perspective": "「introduces、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "why_it_matters": "「general availability、network、vpc、subnet」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「general availability、network、vpc、subnet」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
       "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
-      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
       "id": "f7cae18738735941",
@@ -1121,6 +1090,36 @@
       "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
+      "id": "3bbb4d3a228c7956",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Cloud Load Balancing — Feature: A new quota system governing the configuration size of Application Load Balancers is now generally available",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-09-30T07:00:00Z",
+      "excerpt": "Feature A new quota system governing the configuration size of Application Load Balancers is now generally available . This update increases the individual URL map size limit from 64 KB and 128 KB to 1 MB. For more information, see URL map size and quota units . Key aspects of th",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "network",
+      "score": 54,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "vpc",
+        "load balancer"
+      ],
+      "why_it_matters": "「generally available、vpc、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「generally available、vpc、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
       "id": "249d3d7d86596f17",
