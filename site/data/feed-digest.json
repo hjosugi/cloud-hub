@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-14T21:21:22.417246Z",
+  "generated_at": "2026-11-15T21:21:28.561945Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -44,10 +44,10 @@
     "categories": {
       "deprecation": 13,
       "genai": 13,
-      "operations": 8,
       "data": 8,
+      "operations": 7,
       "security": 3,
-      "network": 2,
+      "network": 3,
       "cost": 1
     },
     "vendors": {
@@ -917,38 +917,6 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "a5be2d3b78d2de4e",
-      "vendor": "aws",
-      "source": "AWS What's New",
-      "title": "AWS Network Security Manager now available in AWS European Sovereign Cloud and Additional New Regions",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/",
-      "published_at": "2026-11-11T21:00:00Z",
-      "excerpt": "AWS Network Security Manager is now available in AWS European Sovereign Cloud Region and Thirty-One new Regions Today, AWS announces the general availability of AWS Network Security Manager in the AWS European Sovereign Cloud Region and additional regions. Network Security Manage",
-      "category": "security",
-      "category_label": "セキュリティ",
-      "tags": [
-        "security",
-        "network",
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "security",
-      "score": 57,
-      "confidence": "高",
-      "signals": [
-        "general availability",
-        "now available",
-        "security"
-      ],
-      "why_it_matters": "「general availability、now available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
-      "design_perspective": "「general availability、now available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
-      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
-      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
-    },
-    {
       "id": "66397d7d7157e54a",
       "vendor": "gcp",
       "source": "Google Cloud Release Notes",
@@ -977,38 +945,6 @@
       "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: PDE, PCA, PMLE。データ系試験では、整合性・レイテンシ・スケーリング・運用負荷のトレードオフとして整理します。",
       "recommended_action": "対象ワークロード、整合性、上限、互換性、移行と復旧方法を確認し、データ設計の差分をADRへ反映します。"
-    },
-    {
-      "id": "9113591fee834fed",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Gemini Enterprise Agent Platform — Feature: End-user safety identifier labels for abuse monitoring",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-11-11T08:00:00Z",
-      "excerpt": "Feature End-user safety identifier labels for abuse monitoring End-user safety_identifier request labels are available in General Availability (GA) for Gemini ( generateContent and streamGenerateContent ) and Veo ( predictLongRunning ) API calls. API resellers and multi-tenant ap",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations",
-        "genai"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 56,
-      "confidence": "高",
-      "signals": [
-        "general availability",
-        "agent",
-        "gemini",
-        "monitor"
-      ],
-      "why_it_matters": "「general availability、agent、gemini、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「general availability、agent、gemini、monitor」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
       "id": "a15673ab89c9a9de",
@@ -1075,6 +1011,37 @@
       "recommended_action": "料金表、commitment、データ転送、運用工数を確認し、代表ワークロードで総費用差を試算します。"
     },
     {
+      "id": "8afa23fe2300b36c",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Cloud Load Balancing — Feature: Frontend configuration for load balancing incoming IPv6 traffic is now generally available (GA) for the following load balancers:",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-11-06T08:00:00Z",
+      "excerpt": "Feature Frontend configuration for load balancing incoming IPv6 traffic is now generally available (GA) for the following load balancers: Regional external Application Load Balancer Regional external proxy Network Load Balancer Regional internal Application Load Balancer Regional",
+      "category": "network",
+      "category_label": "ネットワーク",
+      "tags": [
+        "network"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "network",
+      "score": 55,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "network",
+        "subnet",
+        "load balancer"
+      ],
+      "why_it_matters": "「generally available、network、subnet、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。",
+      "design_perspective": "「generally available、network、subnet、load balancer」が検出されました。接続経路、到達性、負荷分散、名前解決またはハイブリッド接続に関わる更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
+      "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
       "id": "0fc5578f880a3896",
       "vendor": "aws",
       "source": "AWS What's New",
@@ -1103,6 +1070,38 @@
       "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
+      "id": "a5be2d3b78d2de4e",
+      "vendor": "aws",
+      "source": "AWS What's New",
+      "title": "AWS Network Security Manager now available in AWS European Sovereign Cloud and Additional New Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/",
+      "published_at": "2026-11-11T21:00:00Z",
+      "excerpt": "AWS Network Security Manager is now available in AWS European Sovereign Cloud Region and Thirty-One new Regions Today, AWS announces the general availability of AWS Network Security Manager in the AWS European Sovereign Cloud Region and additional regions. Network Security Manage",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tags": [
+        "security",
+        "network",
+        "operations"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "security",
+      "score": 54,
+      "confidence": "高",
+      "signals": [
+        "general availability",
+        "now available",
+        "security"
+      ],
+      "why_it_matters": "「general availability、now available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
+      "design_perspective": "「general availability、now available、security」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 AWSでは「service primitivesをaccount/Region境界で組み合わせる」前提で、Account / OU / Region / VPCとservice固有resource policyのどこが変わるかを確認します。",
+      "operations_perspective": "CloudWatch・CloudTrail・Configとservice quota、Region展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AIP-C01, SAP-C02, SCS-C03。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
+      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
     },
     {
       "id": "76929fd6a380a6e7",
