@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-21T21:21:59.945699Z",
+  "generated_at": "2026-11-22T21:21:49.222690Z",
   "analyzer": {
     "name": "tiny-naive-bayes-plus-rules",
     "version": "2.0",
@@ -42,12 +42,13 @@
       "記録のみ": 11
     },
     "categories": {
-      "genai": 15,
-      "operations": 15,
+      "genai": 16,
+      "operations": 12,
       "data": 8,
+      "security": 4,
       "network": 4,
-      "security": 3,
-      "deprecation": 3
+      "deprecation": 3,
+      "cost": 1
     },
     "vendors": {
       "gcp": 12,
@@ -59,9 +60,9 @@
       "security": 3,
       "retirement": 1,
       "preview": 4,
+      "ga": 20,
       "deprecation": 1,
-      "ga": 19,
-      "update": 20
+      "update": 19
     },
     "top_actions": [
       {
@@ -188,67 +189,6 @@
       ],
       "why_it_matters": "「introduces、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
       "design_perspective": "「introduces、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
-      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
-    },
-    {
-      "id": "8eeac0b00256dbee",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Cloud Asset Inventory — Deprecated: Support for the dataplex.googleapis.com/Environment resource type in Cloud Asset Inventory is deprecated because Dataplex Explore is depreca",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-11-18T08:00:00Z",
-      "excerpt": "Deprecated Support for the dataplex.googleapis.com/Environment resource type in Cloud Asset Inventory is deprecated because Dataplex Explore is deprecated. You can migrate interactive analytics workflows to BigQuery Studio .",
-      "category": "deprecation",
-      "category_label": "廃止・移行",
-      "tags": [
-        "deprecation",
-        "data",
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "deprecation",
-      "comparison_category": "data",
-      "score": 64,
-      "confidence": "高",
-      "signals": [
-        "deprecated"
-      ],
-      "why_it_matters": "「deprecated」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
-      "design_perspective": "「deprecated」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
-      "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
-    },
-    {
-      "id": "9fb74d5a6d490ac4",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Gemini Enterprise Agent Platform — Feature: Gemini 4 Neon (GA)",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-11-18T08:00:00Z",
-      "excerpt": "Feature Gemini 4 Neon (GA) Gemini 4 Neon ( gemini-4-neon ) is generally available (GA) in Gemini Enterprise Agent Platform. Gemini 4 Neon is a Google Frontier Model subject to Section 34 of the Service Specific Terms (for details, see Abuse monitoring ) and delivers high-performa",
-      "category": "genai",
-      "category_label": "生成AI",
-      "tags": [
-        "genai",
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "genai",
-      "score": 64,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "agent",
-        "gemini"
-      ],
-      "why_it_matters": "「generally available、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
-      "design_perspective": "「generally available、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
       "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
       "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
@@ -410,35 +350,65 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "8b2e4bcb26e2d5f3",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Geo-redundant backup and restore for Azure HorizonDB",
-      "url": "https://azure.microsoft.com/updates?id=574168",
-      "published_at": "2026-11-17T23:47:55Z",
-      "excerpt": "Geo-redundant backup and restore for Azure HorizonDB is now available. You can use geo-redundant backups to strengthen data protection and restore your HorizonDB deployment in another Azure region when needed. With this capability, you have an additional",
-      "category": "operations",
-      "category_label": "運用・信頼性",
+      "id": "8eeac0b00256dbee",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Cloud Asset Inventory — Deprecated: Support for the dataplex.googleapis.com/Environment resource type in Cloud Asset Inventory is deprecated because Dataplex Explore is depreca",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-11-18T08:00:00Z",
+      "excerpt": "Deprecated Support for the dataplex.googleapis.com/Environment resource type in Cloud Asset Inventory is deprecated because Dataplex Explore is deprecated. You can migrate interactive analytics workflows to BigQuery Studio .",
+      "category": "deprecation",
+      "category_label": "廃止・移行",
       "tags": [
+        "deprecation",
+        "data",
+        "operations"
+      ],
+      "priority": "今週確認",
+      "release_stage": "deprecation",
+      "comparison_category": "data",
+      "score": 61,
+      "confidence": "高",
+      "signals": [
+        "deprecated"
+      ],
+      "why_it_matters": "「deprecated」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。",
+      "design_perspective": "「deprecated」が検出されました。互換性喪失や期限付き移行につながるため、通常の新機能より優先度が高い更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "データ領域の比較起点: AWS: S3 / Glue / Redshift / Aurora / AZURE: ADLS / Fabric / Azure SQL / GCP: Cloud Storage / BigQuery / Spanner / OCI: Object Storage / Autonomous Database / MySQL HeatWave。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。旧名称・旧方式を正解として覚えないよう、後継サービスと期限を対で記録します。",
+      "recommended_action": "終了日、影響inventory、代替手段、移行検証、rollbackを公式情報で確認し、ownerと期限付きIssueを作成します。"
+    },
+    {
+      "id": "9fb74d5a6d490ac4",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Gemini Enterprise Agent Platform — Feature: Gemini 4 Neon (GA)",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-11-18T08:00:00Z",
+      "excerpt": "Feature Gemini 4 Neon (GA) Gemini 4 Neon ( gemini-4-neon ) is generally available (GA) in Gemini Enterprise Agent Platform. Gemini 4 Neon is a Google Frontier Model subject to Section 34 of the Service Specific Terms (for details, see Abuse monitoring ) and delivers high-performa",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai",
         "operations"
       ],
       "priority": "今週確認",
       "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 59,
+      "comparison_category": "genai",
+      "score": 61,
       "confidence": "高",
       "signals": [
         "generally available",
-        "now available",
-        "deployment",
-        "backup"
+        "agent",
+        "gemini"
       ],
-      "why_it_matters": "「generally available、now available、deployment、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、now available、deployment、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+      "why_it_matters": "「generally available、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「generally available、agent、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
       "id": "4c65054216b9d6d1",
@@ -625,36 +595,6 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "9c74af7555aefebe",
-      "vendor": "gcp",
-      "source": "Google Cloud Release Notes",
-      "title": "Gemini Enterprise — Feature: Gemini Enterprise: Gemini 4 Neon available in web app, mobile app, Workflow Builder, and AI developer tools",
-      "url": "https://docs.cloud.google.com/release-notes",
-      "published_at": "2026-11-18T08:00:00Z",
-      "excerpt": "Feature Gemini Enterprise: Gemini 4 Neon available in web app, mobile app, Workflow Builder, and AI developer tools Gemini 4 Neon is generally available (GA) for the Gemini Enterprise web app, mobile app, Workflow Builder, and AI developer tools. Location availability : Supported",
-      "category": "genai",
-      "category_label": "生成AI",
-      "tags": [
-        "genai",
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "genai",
-      "score": 57,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "gemini"
-      ],
-      "why_it_matters": "「generally available、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
-      "design_perspective": "「generally available、gemini」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
-      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: PDE, PCA, PMLE。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
-      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
-    },
-    {
       "id": "2ab04128eca0be19",
       "vendor": "azure",
       "source": "Azure Service Updates",
@@ -684,6 +624,37 @@
       "cross_cloud_context": "ネットワーク領域の比較起点: AWS: VPC / Transit Gateway / PrivateLink / AZURE: VNet / Virtual WAN / Private Link / GCP: VPC / Network Connectivity Center / Private Service Connect / OCI: VCN / DRG / Private Endpoint。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AZ-305, SC-100, AZ-700。L4/L7、公開/非公開、リージョナル/グローバルの軸で既存サービスとの違いを整理します。",
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
+    },
+    {
+      "id": "8b2e4bcb26e2d5f3",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "[Launched] Generally Available: Geo-redundant backup and restore for Azure HorizonDB",
+      "url": "https://azure.microsoft.com/updates?id=574168",
+      "published_at": "2026-11-17T23:47:55Z",
+      "excerpt": "Geo-redundant backup and restore for Azure HorizonDB is now available. You can use geo-redundant backups to strengthen data protection and restore your HorizonDB deployment in another Azure region when needed. With this capability, you have an additional",
+      "category": "operations",
+      "category_label": "運用・信頼性",
+      "tags": [
+        "operations"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "operations",
+      "score": 56,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "now available",
+        "deployment",
+        "backup"
+      ],
+      "why_it_matters": "「generally available、now available、deployment、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
+      "design_perspective": "「generally available、now available、deployment、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
+      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
     },
     {
       "id": "04f79a9aa81f8068",
@@ -779,6 +750,39 @@
       "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+    },
+    {
+      "id": "388e95d66787041d",
+      "vendor": "gcp",
+      "source": "Google Cloud Release Notes",
+      "title": "Looker — Announcement: Beginning February 1, 2027, billing will be in effect for usage of Gemini-assisted features that exceeds their instance token allocation. Ge",
+      "url": "https://docs.cloud.google.com/release-notes",
+      "published_at": "2026-11-15T08:00:00Z",
+      "excerpt": "Announcement Beginning February 1, 2027, billing will be in effect for usage of Gemini-assisted features that exceeds their instance token allocation. Gemini-assisted features are a set of agentic capabilities that include Conversational Analytics and other generally available fe",
+      "category": "cost",
+      "category_label": "コスト",
+      "tags": [
+        "cost",
+        "genai",
+        "data"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "cost",
+      "score": 55,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "agent",
+        "gemini",
+        "pricing"
+      ],
+      "why_it_matters": "「generally available、agent、gemini、pricing」が検出されました。継続費用または価格性能比を変える可能性がある更新です。",
+      "design_perspective": "「generally available、agent、gemini、pricing」が検出されました。継続費用または価格性能比を変える可能性がある更新です。 GCPでは「project境界、global platform、managed data、SRE原則から設計する」前提で、Organization / Folder / Projectとzonal・regional・global resource scopeのどこが変わるかを確認します。",
+      "operations_perspective": "Cloud Operations・Audit Logs・quotaとlaunch stage、model/API versionを確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "コスト領域の比較起点: AWS: Cost Explorer / Savings Plans / AZURE: Cost Management / Reservations / GCP: Cloud Billing / CUD / OCI: Cost Analysis / Universal Credits。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: PDE, PCA, PMLE。オンデマンド、予約・コミット、バッチ、サーバーレスの利用率別トレードオフを整理します。",
+      "recommended_action": "料金表、commitment、データ転送、運用工数を確認し、代表ワークロードで総費用差を試算します。"
     },
     {
       "id": "e7575199506df3f0",
@@ -905,36 +909,6 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
-      "id": "2bfc125db2f7e920",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "[In preview] Generally Available: Customize backup retention from 1 to 35 days in Azure HorizonDB",
-      "url": "https://azure.microsoft.com/updates?id=574163",
-      "published_at": "2026-11-17T23:46:26Z",
-      "excerpt": "You can now configure backup retention for your Azure HorizonDB deployments from 1 to 35 days, giving you greater flexibility to align backup retention with your application and data protection requirements. Choose the retention period that best fits you",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 54,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "deployment",
-        "backup"
-      ],
-      "why_it_matters": "「generally available、deployment、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、deployment、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
-    },
-    {
       "id": "a2e31ed5f0e795a3",
       "vendor": "azure",
       "source": "Azure Service Updates",
@@ -1026,35 +1000,6 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "4ebeae40864957d7",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "[Launched] Generally Available: Cross-subscription backup for Azure Virtual Machines in Azure Backup",
-      "url": "https://azure.microsoft.com/updates?id=581048",
-      "published_at": "2026-11-18T18:00:04Z",
-      "excerpt": "Azure Backup now supports cross-subscription backup for Azure Virtual Machines, enabling customers to protect VMs using a Recovery Services vault located in a different Azure subscription within the same tenant.This capability allows organizations to cent",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "ga",
-      "comparison_category": "operations",
-      "score": 53,
-      "confidence": "高",
-      "signals": [
-        "generally available",
-        "backup"
-      ],
-      "why_it_matters": "「generally available、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「generally available、backup」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
-    },
-    {
       "id": "582730678ad0fdb2",
       "vendor": "azure",
       "source": "Azure Service Updates",
@@ -1117,35 +1062,6 @@
       "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
     },
     {
-      "id": "6bf70555de5179a5",
-      "vendor": "azure",
-      "source": "Azure Service Updates",
-      "title": "Announcing: Azure Boost observability for NVMe disks",
-      "url": "https://azure.microsoft.com/updates?id=581227",
-      "published_at": "2026-11-18T00:00:09Z",
-      "excerpt": "Azure Boost observability for NVMe disks is an open-source command-line tool that you run inside compatible Azure VMs. Backed by Azure Boost, the tool provides remote disk I/O and latency metrics and maps each disk inside your VM to the corresponding disk",
-      "category": "operations",
-      "category_label": "運用・信頼性",
-      "tags": [
-        "operations"
-      ],
-      "priority": "今週確認",
-      "release_stage": "update",
-      "comparison_category": "operations",
-      "score": 52,
-      "confidence": "高",
-      "signals": [
-        "metric",
-        "observability"
-      ],
-      "why_it_matters": "「metric、observability」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。",
-      "design_perspective": "「metric、observability」が検出されました。可観測性、自動化、デプロイ、復旧またはスケーリングの運用負荷に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
-      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
-      "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
-      "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
-      "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
-    },
-    {
       "id": "f98575fe6a69d43a",
       "vendor": "azure",
       "source": "Azure Service Updates",
@@ -1178,6 +1094,36 @@
       "recommended_action": "通信経路、名前解決、到達性、障害ドメインを図にし、同等機能との差と切戻し方法を更新します。"
     },
     {
+      "id": "9bcd0c120debd604",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "[Launched] Generally Available: Azure AI Gateway",
+      "url": "https://azure.microsoft.com/updates?id=580080",
+      "published_at": "2026-11-17T20:00:32Z",
+      "excerpt": "Azure AI Gateway, previously available as the AI Gateway tier of API Management, is now generally available as a fully managed Azure service for connecting users, applications, and agents to AI models and MCP tools across providers.Platform teams can cent",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "genai",
+      "score": 52,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "agent",
+        "azure ai"
+      ],
+      "why_it_matters": "「generally available、agent、azure ai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「generally available、agent、azure ai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
       "id": "c3977096c43d937e",
       "vendor": "azure",
       "source": "Azure Service Updates",
@@ -1206,6 +1152,68 @@
       "cross_cloud_context": "運用・信頼性領域の比較起点: AWS: CloudWatch / CloudTrail / Config / AZURE: Azure Monitor / Activity Log / Policy / GCP: Cloud Operations / Cloud Audit Logs / OCI: Monitoring / Logging / Audit。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
       "study_impact": "対象: AZ-305, SC-100, AZ-700。最小運用負荷、監査可能性、再試行・ロールバックの要件語と結び付けます。",
       "recommended_action": "SLI、ログ、失敗時動作、quota、料金を確認し、監視とランブックの変更要否を記録します。"
+    },
+    {
+      "id": "068fe5a598ea2c74",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "[Launched] Generally Available: Microsoft Agent 365 integration with Azure API Management and Azure AI Gateway",
+      "url": "https://azure.microsoft.com/updates?id=580055",
+      "published_at": "2026-11-17T20:00:32Z",
+      "excerpt": "The integration between Microsoft Agent 365 and Azure API Management is now generally available, enabling organizations to centrally govern AI agents and MCP tools while enforcing security and access policies at runtime through Azure API Management and Az",
+      "category": "genai",
+      "category_label": "生成AI",
+      "tags": [
+        "genai",
+        "security"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "genai",
+      "score": 52,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "agent",
+        "azure ai"
+      ],
+      "why_it_matters": "「generally available、agent、azure ai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。",
+      "design_perspective": "「generally available、agent、azure ai」が検出されました。生成AIの設計選択肢、モデル連携、RAGまたはエージェント構成に影響する更新です。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "生成AI領域の比較起点: AWS: Amazon Bedrock / AgentCore / AZURE: Azure AI Foundry / GCP: Vertex AI / Gemini Enterprise / OCI: OCI Generative AI。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。生成AI系試験では、機能名だけでなく既存方式との使い分けと運用上の制約を確認します。",
+      "recommended_action": "成熟度、対応リージョン、データ境界、評価方法、料金を確認し、採用ADRと運用手順への影響を記録します。"
+    },
+    {
+      "id": "4c4c3582d33eb8b9",
+      "vendor": "azure",
+      "source": "Azure Service Updates",
+      "title": "[Launched] Generally Available: Symmetric keys on Azure Key Vault Premium",
+      "url": "https://azure.microsoft.com/updates?id=579374",
+      "published_at": "2026-11-17T20:00:32Z",
+      "excerpt": "Building on the public preview introduced in July 2026, this release enables customers and partners to use symmetric encryption capabilities with the oct-HSM key type and the Advanced Encryption Standard (AES) algorithm directly within Azure Key Vault Pre",
+      "category": "security",
+      "category_label": "セキュリティ",
+      "tags": [
+        "security",
+        "operations"
+      ],
+      "priority": "今週確認",
+      "release_stage": "ga",
+      "comparison_category": "security",
+      "score": 52,
+      "confidence": "高",
+      "signals": [
+        "generally available",
+        "encryption",
+        "key vault"
+      ],
+      "why_it_matters": "「generally available、encryption、key vault」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。",
+      "design_perspective": "「generally available、encryption、key vault」が検出されました。権限境界、データ保護、プライベート接続または監査設計を変える可能性があります。 AZUREでは「Entra・ARM・Policyによるenterprise control planeへworkloadを統合する」前提で、Entra tenant / Management Group / Subscription / Resource Groupのどこが変わるかを確認します。",
+      "operations_perspective": "Azure Monitor・Activity Log・PolicyとSKU/API version、subscription展開を確認。既存resourceへの適用、既定値、Region、quota、metric、料金、rollbackを確認します。",
+      "cross_cloud_context": "セキュリティ領域の比較起点: AWS: Security Hub / GuardDuty / IAM / AZURE: Defender for Cloud / Entra / Policy / GCP: Security Command Center / Cloud IAM / OCI: Cloud Guard / Security Zones / IAM。同等性を示す一覧ではありません。resource scope、IAM、HA、運用者責任を個別に比較します。",
+      "study_impact": "対象: AZ-305, SC-100, AZ-700。IAM・暗号化・ネットワーク境界のどの層で効く統制かを整理すると、横断的な設計問題に効きます。",
+      "recommended_action": "既存構成への適用範囲、既定値、監査証跡を確認し、必要なら統制と例外手順を更新します。"
     },
     {
       "id": "a72a45287a558975",
